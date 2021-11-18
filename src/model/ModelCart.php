@@ -28,6 +28,18 @@
 	            $this->$nom_attribut = $valeur;
 	        return false;
 	    }
+
+	    public function save() {
+	        $insert_cart = "INSERT INTO commande(idUser, idProduct, quantity) VALUES (:idUser, :idProduct, :quantity)";
+
+	        $req_prep = Model::getPDO()->prepare($insert_cart);
+	        
+	        $req_prep->execute([
+	            "idUser" => $this->user->getAttribute(idUser),
+	            "idProduct" => $this->product->getAttribute(idProduct),
+	            "quantity" => $this->quantity
+	        ]);
+	    }
 	}
 
 ?>

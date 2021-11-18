@@ -6,6 +6,7 @@
 		private $user;  // Instance de la classe User
 		private $product;  // Instance de la classe Product
 		private $date;  // Date courante
+		// (link : https://www.php.net/manual/fr/function.date.php)
 		private $quantity
 
 
@@ -34,6 +35,23 @@
 	            $this->$nom_attribut = $valeur;
 	        return false;
 	    }
+
+
+	    public function save() {
+	        $insert_cmd = "INSERT INTO commande(idUser, idProduct, date, quantity) VALUES (:idUser, :idProduct, :date, :quantity)";
+
+	        $req_prep = Model::getPDO()->prepare($insert_cmd);
+	        
+	        $req_prep->execute([
+	            "idUser" => $this->user->getAttribute(idUser),
+	            "idProduct" => $this->product->getAttribute(idProduct),
+	            "date" => $this->date,
+	            "quantity" => $this->quantity
+	        ]);
+	    }
+
+
+
 
 	}
 

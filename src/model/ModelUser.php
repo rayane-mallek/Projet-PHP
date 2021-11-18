@@ -38,6 +38,26 @@ class ModelUser {
     }
 
 
+    // Methode pour inserer un nouveau user dans la table User
+    
+    public function save() {
+        $insert_user = "INSERT INTO user(username, password, email) VALUES (:username, :password, :email)";
+        
+        /*$values = array(
+            "username" => $this->username,
+            "password" => $this->password,
+            "email" => $this->email
+        );*/
+
+        $req_prep = Model::getPDO()->prepare($insert_user);
+        $req_prep->execute([
+            "username" => $this->username,
+            "password" => $this->password,
+            "email" => $this->email
+        ]);
+    }
+
+
 }
 
 ?>

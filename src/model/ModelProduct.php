@@ -31,12 +31,23 @@ class ModelProduct {
     }
 
     // une methode d'affichage.
-    public function afficher() {v
-        echo "Name : {$this->name} <br/>"; 
+    public function afficher() {
+        echo "Name : {$this->name} <br/>";
         echo "Email : {$this->price} <br/>";
         echo "Price : {$this->price} <br/>";
     }
 
+    public function save() {
+        $insert_product = "INSERT INTO product(name, price, description) VALUES (:name, :price, :description)";
+
+        $req_prep = Model::getPDO()->prepare($insert_product);
+        
+        $req_prep->execute([
+            "name" => $this->name,
+            "price" => $this->price,
+            "description" => $this->description
+        ]);
+    }
 }
 
 ?>
