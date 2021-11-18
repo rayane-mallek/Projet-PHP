@@ -1,8 +1,14 @@
 <?php
 class file{
-  public static function build_path($path_array){
-    $d_s = DIRECTORY_SEPARATOR;
-    $ROOT_FOLDER = __DIR__ . "/..";
-    return $ROOT_FOLDER . $d_s . join($d_s, $path_array);
+
+
+  public static function build_path($path_array) {
+    // $ROOT_FOLDER (sans slash à la fin) vaut
+    // "/home/ann2/mallekr/public_html/PHP" à l'IUT 
+    $ROOT_FOLDER = __DIR__;
+    $DS = DIRECTORY_SEPARATOR;
+    return $ROOT_FOLDER . $DS . '..' . $DS . join($DS, $path_array);
   }
+
+  
 }

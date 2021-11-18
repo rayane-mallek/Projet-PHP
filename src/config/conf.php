@@ -1,10 +1,16 @@
 <?php
+
+$ROOT_FOLDER = __DIR__;
+$DS = DIRECTORY_SEPARATOR;
+require_once $ROOT_FOLDER . $DS . '..' . $DS . 'lib' . $DS . 'File.php';
+
+
 class conf{
 	static private $databases = array(
-		'hostname' => '',
-		'database' => '',
-		'login' => '',
-		'password' => ''
+		'hostname' => 'webinfo',
+		'database' => 'mallekr',
+		'login' => 'mallekr',
+		'password' => 'mallekr'
 	);
 
 	static public function getLogin(){
