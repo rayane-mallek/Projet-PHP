@@ -16,7 +16,7 @@
 	            $this->user = $user;
 	            $this->product = $product;
 
-	            $this->date = date("D, d M Y "); 
+	            $this->date = date("D, d M Y ");
 	            // la fonction date(string $format, ?int $timestamp = null) renvoie une date sous forme de String
 	            $this->quantity = $quantity;
 	        }
@@ -41,10 +41,10 @@
 	        $insert_cmd = "INSERT INTO commande(idUser, idProduct, date, quantity) VALUES (:idUser, :idProduct, :date, :quantity)";
 
 	        $req_prep = Model::getPDO()->prepare($insert_cmd);
-	        
+
 	        $req_prep->execute([
-	            "idUser" => $this->user->getAttribute(idUser),
-	            "idProduct" => $this->product->getAttribute(idProduct),
+	            "idUser" => $this->user->idUser,
+	            "idProduct" => $this->product->idProduct,
 	            "date" => $this->date,
 	            "quantity" => $this->quantity
 	        ]);

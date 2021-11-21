@@ -1,10 +1,9 @@
 <?php
-
 	class ModelCart {
 
 		private $user;  // Instance de la classe User
 		private $product;  // Instance de la classe Product
-		private $quantity; 
+		private $quantity;
 
 		// un constructeur
 	    public function __construct($user = NULL, $product = NULL, $quantity = NULL) {
@@ -33,10 +32,10 @@
 	        $insert_cart = "INSERT INTO commande(idUser, idProduct, quantity) VALUES (:idUser, :idProduct, :quantity)";
 
 	        $req_prep = Model::getPDO()->prepare($insert_cart);
-	        
+
 	        $req_prep->execute([
-	            "idUser" => $this->user->getAttribute(idUser),
-	            "idProduct" => $this->product->getAttribute(idProduct),
+	            "idUser" => $this->user->idUser,
+	            "idProduct" => $this->product->idProduct,
 	            "quantity" => $this->quantity
 	        ]);
 	    }

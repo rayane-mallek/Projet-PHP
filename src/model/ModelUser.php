@@ -24,6 +24,15 @@ class ModelUser {
         return false;
     }
 
+    // Les Getters
+    public function getUsername(){
+	return $username;
+    }
+
+    public function getEmail(){
+        return $email;
+    }
+
     // Setter générique
     public function set($nom_attribut, $valeur) {
         if (property_exists($this, $nom_attribut))
@@ -31,23 +40,27 @@ class ModelUser {
         return false;
     }
 
+    // Les setters
+
+    public function setEmail($emailN){
+        return $semail=$emailN;
+    }
+
+    public function setUsername($usernameN){
+        return $username=$usernameN;
+    }
+
+
     // une methode d'affichage.
     public function afficher() {
-        echo "Username : {$this->username} <br/>"; 
+        echo "Username : {$this->username} <br/>";
         echo "Email : {$this->email} <br/>";
     }
 
 
     // Methode pour inserer un nouveau user dans la table User
-    
     public function save() {
         $insert_user = "INSERT INTO user(username, password, email) VALUES (:username, :password, :email)";
-        
-        /*$values = array(
-            "username" => $this->username,
-            "password" => $this->password,
-            "email" => $this->email
-        );*/
 
         $req_prep = Model::getPDO()->prepare($insert_user);
         $req_prep->execute([

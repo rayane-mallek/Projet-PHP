@@ -41,7 +41,7 @@ class ModelProduct {
         $insert_product = "INSERT INTO product(name, price, description) VALUES (:name, :price, :description)";
 
         $req_prep = Model::getPDO()->prepare($insert_product);
-        
+
         $req_prep->execute([
             "name" => $this->name,
             "price" => $this->price,
