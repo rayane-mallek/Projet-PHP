@@ -1,41 +1,66 @@
 <?php
-	class ModelCart {
+
+$ROOT_FOLDER = __DIR__;
+$DS = DIRECTORY_SEPARATOR;
+require_once $ROOT_FOLDER . $DS . '..' . $DS . 'lib' . $DS . 'File.php';
+
+require_once File::build_path(array("model","Model.php"));
+
+
+class ModelCart {
 
 		private $user;  // Instance de la classe User
 		private $product;  // Instance de la classe Product
 		private $quantity;
 
-		// un constructeur
-	    public function __construct($user = NULL, $product = NULL, $quantity = NULL) {
-	        if (!is_null($user) && !is_null($product) && !is_null($quantity)) {
-	            $this->user = $name;
-	            $this->product = $price;
-	            $this->quantity = $description;
-	        }
-	    }
+		/**
+		 * ModelCart constructor.
+		 * @param $user
+		 * @param $product
+		 * @param $quantity
+		 */
+		public function __construct($user, $product, $quantity){
+			if (!is_null($user) && !is_null($product) && !is_null($quantity)) {
+				$this->user = $user;
+				$this->product = $product;
+				$this->quantity = $quantity;
+			}
+		}
 
-	    // Getter générique
-	    public function get($nom_attribut) {
-	        if (property_exists($this, $nom_attribut))
-	            return $this->$nom_attribut;
-	        return false;
-	    }
+	    // Les Getters
+		public function getUser(){
+			return $this->user;
+		}
 
-	    // Setter générique
-	    public function set($nom_attribut, $valeur) {
-	        if (property_exists($this, $nom_attribut))
-	            $this->$nom_attribut = $valeur;
-	        return false;
-	    }
+		public function getProduct(){
+			return $this->product;
+		}
 
-	    public function save() {
-	        $insert_cart = "INSERT INTO commande(idUser, idProduct, quantity) VALUES (:idUser, :idProduct, :quantity)";
+		public function getQuantity(){
+			return $this->quantity;
+		}
+
+		//Les Setters
+		public function setUser($user){
+			$this->user = $user;
+		}
+
+		public function setProduct($product){
+			$this->product = $product;
+		}
+
+		public function setQuantity($quantity){
+			$this->quantity = $quantity;
+		}
+
+		public function save() {
+	        $insert_cart = "INSERT INTO p_cart(idUser, idProduct, quantity) VALUES (:idUser, :idProduct, :quantity)";
 
 	        $req_prep = Model::getPDO()->prepare($insert_cart);
 
 	        $req_prep->execute([
-	            "idUser" => $this->user->idUser,
-	            "idProduct" => $this->product->idProduct,
+	            "idUser" => $this->user->getIdUser(),
+	            "idProduct" => $this->product->getIdProduct(),
 	            "quantity" => $this->quantity
 	        ]);
 	    }

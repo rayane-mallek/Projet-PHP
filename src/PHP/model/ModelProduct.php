@@ -1,14 +1,29 @@
 <?php
 
+$ROOT_FOLDER = __DIR__;
+$DS = DIRECTORY_SEPARATOR;
+require_once $ROOT_FOLDER . $DS . '..' . $DS . 'lib' . $DS . 'File.php';
+
+require_once File::build_path(array("..","config","Conf.php"));
+
+
 class ModelProduct {
 
 	private $idProduct;
-	private $name;
-	private $price;
-	private $description;
+    private $name;
+    private $price;
+    private $description;
 
-	// un constructeur
-    public function __construct($name = NULL, $price = NULL, $description = NULL) {
+    // Le Constructeur
+
+    /**
+     * ModelProduct constructor.
+     * @param $idProduct
+     * @param $name
+     * @param $price
+     * @param $description
+     */
+    public function __construct($name, $price, $description){
         if (!is_null($name) && !is_null($price) && !is_null($description)) {
             $this->name = $name;
             $this->price = $price;
@@ -16,41 +31,31 @@ class ModelProduct {
         }
     }
 
-    // Getter générique
-    /*public function get($nom_attribut) {
-        if (property_exists($this, $nom_attribut))
-            return $this->$nom_attribut;
-        return false;
-    }*/
-
     // Les Getters
-
-    public function getIdProduct(){
-        return $idProduct;
-    }
-
     public function getName(){
-        return $name;
+        return $this->name;
     }
 
     public function getPrice(){
-        return $price;
+        return $this->price;
     }
 
     public function getDescription(){
-        return $description;
+        return $this->description;
     }
 
-    // Setter générique
-    /*public function set($nom_attribut, $valeur) {
-        if (property_exists($this, $nom_attribut))
-            $this->$nom_attribut = $valeur;
-        return false;
-    }*/
-
     // Les Setters
+    public function setName($name){
+        $this->name = $name;
+    }
 
-    
+    public function setPrice($price){
+        $this->price = $price;
+    }
+
+    public function setDescription($description){
+        $this->description = $description;
+    }
 
     // une methode d'affichage.
     public function afficher() {
@@ -60,7 +65,7 @@ class ModelProduct {
     }
 
     public function save() {
-        $insert_product = "INSERT INTO product(name, price, description) VALUES (:name, :price, :description)";
+        $insert_product = "INSERT INTO p_product(name, price, description) VALUES (:name, :price, :description)";
 
         $req_prep = Model::getPDO()->prepare($insert_product);
 
@@ -69,6 +74,10 @@ class ModelProduct {
             "price" => $this->price,
             "description" => $this->description
         ]);
+    }
+
+    public function getAllProducts(){
+
     }
 }
 

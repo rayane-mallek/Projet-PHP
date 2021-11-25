@@ -1,17 +1,25 @@
 <?php
 
-	class ModelCommande {
+$ROOT_FOLDER = __DIR__;
+$DS = DIRECTORY_SEPARATOR;
+require_once $ROOT_FOLDER . $DS . '..' . $DS . 'lib' . $DS . 'File.php';
 
+require_once File::build_path(array("model","Model.php"));
+
+
+class ModelCommande {
+
+		// Instance de la classe Product
+		// Instance de la classe User
+		// Date courante // (link : https://www.php.net/manual/fr/function.date.php)
 		private $idCommande; // Pas forcément utile
-		private $user;  // Instance de la classe User
-		private $product;  // Instance de la classe Product
-		private $date;  // Date courante
-		// (link : https://www.php.net/manual/fr/function.date.php)
-		private $quantity
+		private $user;
+		private $product;
+		private $date;
+		private $quantity;
 
-
-		// un constructeur
-	    public function __construct($user = NULL, $product = NULL, $quantity = NULL) {
+		// Le Constructeur
+		public function __construct($user = NULL, $product = NULL, $quantity = NULL) {
 	        if (!is_null($user) && !is_null($product) && !is_null($quantity)) {
 	            $this->user = $user;
 	            $this->product = $product;
@@ -22,23 +30,35 @@
 	        }
 	    }
 
-	    // Getter générique
-	    public function get($nom_attribut) {
-	        if (property_exists($this, $nom_attribut))
-	            return $this->$nom_attribut;
-	        return false;
-	    }
+	    // Les Getters
+		public function getUser(){ return $this->user; }
 
-	    // Setter générique
-	    public function set($nom_attribut, $valeur) {
-	        if (property_exists($this, $nom_attribut))
-	            $this->$nom_attribut = $valeur;
-	        return false;
-	    }
+		public function getProduct(){ return $this->product; }
+
+		public function getDate(){ return $this->date; }
+
+		public function getQuantity(){ return $this->quantity; }
+
+		// Les Setters
+		public function setUser($user){
+			$this->user = $user;
+		}
+
+		public function setProduct($product){
+			$this->product = $product;
+		}
+
+		public function setDate($date){
+			$this->date = $date;
+		}
+
+		public function setQuantity($quantity){
+			$this->quantity = $quantity;
+		}
 
 
-	    public function save() {
-	        $insert_cmd = "INSERT INTO commande(idUser, idProduct, date, quantity) VALUES (:idUser, :idProduct, :date, :quantity)";
+		public function save() {
+	        $insert_cmd = "INSERT INTO p_commande(idUser, idProduct, date, quantity) VALUES (:idUser, :idProduct, :date, :quantity)";
 
 	        $req_prep = Model::getPDO()->prepare($insert_cmd);
 
@@ -50,9 +70,7 @@
 	        ]);
 	    }
 
-
-
-
 	}
 
 ?>
+
