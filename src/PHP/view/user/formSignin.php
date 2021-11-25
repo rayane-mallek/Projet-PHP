@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <!-- <title>page index</title> -->
-    <link rel="stylesheet" href="../../CSS/form.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="../../../CSS/form.css" media="screen" type="text/css" />
 </head>
 <body>
 
