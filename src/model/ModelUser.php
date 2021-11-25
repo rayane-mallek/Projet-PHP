@@ -18,11 +18,11 @@ class ModelUser {
     }
 
     // Getter générique
-    public function get($nom_attribut) {
+    /*public function get($nom_attribut) {
         if (property_exists($this, $nom_attribut))
             return $this->$nom_attribut;
         return false;
-    }
+    }*/
 
     // Les Getters
     public function getUsername(){
@@ -33,21 +33,25 @@ class ModelUser {
         return $email;
     }
 
+    public function getPassword(){
+        return $password;
+    }
+
     // Setter générique
-    public function set($nom_attribut, $valeur) {
+    /*public function set($nom_attribut, $valeur) {
         if (property_exists($this, $nom_attribut))
             $this->$nom_attribut = $valeur;
         return false;
-    }
+    }*/
 
     // Les setters
 
-    public function setEmail($emailN){
-        return $semail=$emailN;
+    public function setEmail($email){
+        return $semail=$email;
     }
 
-    public function setUsername($usernameN){
-        return $username=$usernameN;
+    public function setUsername($username){
+        return $this->username=$username;
     }
 
 

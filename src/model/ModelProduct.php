@@ -17,18 +17,40 @@ class ModelProduct {
     }
 
     // Getter générique
-    public function get($nom_attribut) {
+    /*public function get($nom_attribut) {
         if (property_exists($this, $nom_attribut))
             return $this->$nom_attribut;
         return false;
+    }*/
+
+    // Les Getters
+
+    public function getIdProduct(){
+        return $idProduct;
+    }
+
+    public function getName(){
+        return $name;
+    }
+
+    public function getPrice(){
+        return $price;
+    }
+
+    public function getDescription(){
+        return $description;
     }
 
     // Setter générique
-    public function set($nom_attribut, $valeur) {
+    /*public function set($nom_attribut, $valeur) {
         if (property_exists($this, $nom_attribut))
             $this->$nom_attribut = $valeur;
         return false;
-    }
+    }*/
+
+    // Les Setters
+
+    
 
     // une methode d'affichage.
     public function afficher() {
