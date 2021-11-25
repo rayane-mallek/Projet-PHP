@@ -1,16 +1,12 @@
 <?php
+$ROOT_FOLDER = __DIR__;
+$DS = DIRECTORY_SEPARATOR;
+require_once $ROOT_FOLDER . $DS . 'PHP' . $DS . 'lib' . $DS . 'File.php';
 
-class File {
-	public static function build_path($path_array) {
-    	$ROOT_FOLDER = __DIR__;
-    	$DS = DIRECTORY_SEPARATOR;
-    	return $ROOT_FOLDER . $DS . '..' . $DS . join($DS, $path_array);
-	}
-}
-
+require_once File::build_path(array("controller", "routeur.php"));
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,4 +62,7 @@ class File {
         </div>
     </article>
 </body>
-</html>
+<footer>
+    <p>&copy; , A. Mathiou, R. Mallek, F. Rivals, J. Renaud.
+</footer>
+</html> -->
