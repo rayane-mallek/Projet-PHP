@@ -10,9 +10,13 @@ require_once File::build_path(array("model", "ModelProduct.php"));
 class ControllerProduct {
     public static function readAll() {
         $tab_p = ModelProduct::getAllProducts();     //appel au modèle pour gerer la BD
-        require ('../view/product/list.php');  //"redirige" vers la vue
+        $controller = 'product';
+        $view = 'list';
+        $pagetitle = 'Products List';
+        require File::build_path(array("view", "view.php"));  //"redirige" vers la vue
     }
 
+    /*
     public static function read() {
         $tab_p = ModelProduct::getAllProducts();
 
@@ -26,6 +30,24 @@ class ControllerProduct {
             require ('../view/product/error.php');
         } else {
             require ('../view/product/detail.php');
+        }
+    }
+    */
+
+    public static function read() {
+        $v = ModelVoiture::getVoitureByImmat($_GET['immatriculation']);
+
+        if (empty($v)) {
+            $controller = 'voiture';
+            $view = 'error';
+            $pagetitle = 'Erreur';
+            require File::build_path(array("view", "view.php"));
+
+        } else {
+            $controller = 'voiture';
+            $view = 'detail';
+            $pagetitle = 'Détail de la voiture';
+            require File::build_path(array("view", "view.php"));
         }
     }
 

@@ -1,13 +1,13 @@
-
-
-
-
-
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des voitures</title>
+</head>
+<body>
 <?php
-/*
-foreach ($tab_v as $v): ?>
-    <a href="./index.php?action=read&immatriculation=<?= rawurlencode($v->getImmatriculation()) ?>">Produit<?= htmlentities($v->getImmatriculation()) ?></a>
-    <br />
-<?php endforeach;*/ ?>
+foreach ($tab_p as $p)
+    echo '<p> Product with id=' . $p->getIDProduct() . '.</p>';
+?>
+</body>
+</html>
