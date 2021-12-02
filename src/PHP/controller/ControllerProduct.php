@@ -35,18 +35,18 @@ class ControllerProduct {
     */
 
     public static function read() {
-        $v = ModelVoiture::getVoitureByImmat($_GET['immatriculation']);
+        $v = ModelVoiture::getProductById($_GET['id']);
 
-        if (empty($v)) {
-            $controller = 'voiture';
+        if (empty($p)) {
+            $controller = 'product';
             $view = 'error';
-            $pagetitle = 'Erreur';
+            $pagetitle = 'Error';
             require File::build_path(array("view", "view.php"));
 
         } else {
-            $controller = 'voiture';
+            $controller = 'product';
             $view = 'detail';
-            $pagetitle = 'Détail de la voiture';
+            $pagetitle = 'Product details';
             require File::build_path(array("view", "view.php"));
         }
     }

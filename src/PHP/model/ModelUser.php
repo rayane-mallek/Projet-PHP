@@ -65,6 +65,28 @@ class ModelUser {
             "password" => $this->password,
             "email" => $this->email
         ]);
+
+
+    }
+
+    public static function getUSerById($idU) {
+        $sql = "SELECT * from voiture WHERE idUser=:idUser";
+        // Préparation de la requête
+        $req_prep = Model::getPDO()->prepare($sql);
+
+        $values = array(
+            "idUser" => $idU
+        );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+
+        // On récupère les résultats comme précédemment
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+        $tab_prod = $req_prep->fetchAll();
+        // Attention, si il n'y a pas de résultats, on renvoie false
+        if (empty($tab_us))
+            return false;
+        return $tab_us[0];
     }
 
 

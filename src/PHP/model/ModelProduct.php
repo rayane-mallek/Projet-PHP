@@ -10,16 +10,14 @@ require_once File::build_path(array("model","Model.php"));
 class ModelProduct {
 
 	private $idProduct;
+
     private $name;
     private $price;
     private $description;
     private $image;
-
     // l'attribut image est un chaine de caractère représentant
+
     // le lien/chemin de l'image en question
-
-
-    // Les Getters
     /**
      * ModelProduct constructor.
      * @param $name
@@ -36,6 +34,12 @@ class ModelProduct {
         }
     }
 
+
+    // Les Getters
+    public function getIdProduct(){
+        return $this->idProduct;
+    }
+
     public function getName(){
         return $this->name;
     }
@@ -43,13 +47,17 @@ class ModelProduct {
     public function getPrice(){
         return $this->price;
     }
+
     public function getDescription(){
         return $this->description;
     }
-
     public function getImage(){return $this->image;}
 
     // Les Setters
+
+    public function setIdProduct($idProduct){
+        $this->idProduct = $idProduct;
+    }
 
     public function setName($name){
         $this->name = $name;
@@ -97,6 +105,28 @@ class ModelProduct {
         $tab_prod = $rep->fetchAll();
         return $tab_prod;
     }
+
+    public static function getProductById($idP) {
+        $sql = "SELECT * from voiture WHERE idProduct=:idProduct";
+        // Préparation de la requête
+        $req_prep = Model::getPDO()->prepare($sql);
+
+        $values = array(
+            "idProduct" => $idP
+        );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+
+        // On récupère les résultats comme précédemment
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelProduct');
+        $tab_prod = $req_prep->fetchAll();
+        // Attention, si il n'y a pas de résultats, on renvoie false
+        if (empty($tab_prod))
+            return false;
+        return $tab_prod[0];
+    }
+
+
 }
 
 ?>
