@@ -1,0 +1,257 @@
+body {
+    width: border-box;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #1c1c1c;
+}
+
+.navbar_title {
+    font-family: TommyBOLD, Arial;
+    font-size: 3rem;
+    margin-left: 2rem;
+    color: #c7c6c6;
+}
+
+.navbar_navigation {
+    position: sticky;
+}
+
+.navbar_navigation li {
+    font-family: TommyTHIN, Arial;
+    display: inline;
+    margin: 2rem;
+    font-size: 1.4rem;
+    color: #e1e1e1;
+}
+
+.navbar_navigation ul {
+    list-style-type: none;
+}
+
+.navbar_navigation ul li {
+    text-align: center;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+
+.navbar_navigation ul::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.navbar_navigation a {
+    text-decoration: none;
+    color: #e1e1e1;
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+.navbar_navigation a:hover {
+    color: white;
+}
+
+.navbar_list {
+    padding: 0;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #2f2f2f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar_undermenu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar_navigation > ul li:hover .navbar_undermenu {
+    display: block;
+}
+
+.navbar_undermenu li {
+    float: none;
+    text-align: left;
+}
+
+.navbar_undermenu a {
+    border-bottom: none;
+    padding: 10px;
+    margin-left: 100px;
+}
+
+.navbar_undermenu a:hover {
+    border-bottom: none;
+}
+
+.scrollable > a::after {
+    content: " ▼";
+}
+
+.present_section_block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.present_block {
+    margin-top: 6rem;
+    border-top: 3px solid #323232;
+    border-bottom: 3px solid #323232;
+    width: 100vw;
+    height: 20rem;
+    background-color: #1a1a1a;
+}
+
+.present_block_title {
+    color: #c2c2c2;
+    text-align: center;
+    font-family: TommyREGULAR, Arial;
+    font-size: 2.3rem;
+    margin: 1rem;
+}
+
+.present_block > p {
+    margin-top: 4rem;
+    text-align: center;
+    color: #b4b4b4;
+    font-size: 1.5rem;
+    font-family: TommyREGULAR;
+}
+
+.example_article {
+    display: flex;
+    margin-top: 18rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.example_article > p {
+    color: #B4B4B4FF;
+    font-family: TommyREGULAR;
+    font-size: 2.7rem;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+.example_block {
+    border: 3px solid #323232;
+    width: 70rem;
+    border-radius: 2rem;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lol_desc {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lol > h1 {
+    color: #B4B4B4FF;
+    font-size: 4rem;
+    font-family: TommyREGULAR, Arial;
+}
+
+.lol_desc > h1 {
+    margin-top: 5rem;
+    color: #d2d2d2;
+    font-size: 3rem;
+    font-family: TommyREGULAR, Arial;
+}
+
+.lol_desc > p {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    color: #d2d2d2;
+}
+
+.lol_desc > h3 {
+    color: #d2d2d2;
+}
+
+.lol_img {
+    width: 25rem;
+}
+
+@font-face {
+    font-family: 'azonix';
+    src: url("/FONTS/Azonix.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Coolvetica';
+    src: url("/FONTS/coolvetica rg.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'monofonto';
+    src: url("/FONTS/monofonto.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: TommyBOLD;
+    src: url(../fonts/bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: TommyBLACK;
+    src: url(../fonts/black.otf);
+}
+
+@font-face {
+    font-family: TommyMEDIUM;
+    src: url(../fonts/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf);
+    font-weight: Medium;
+}
+
+@font-face {
+    font-family: TommyTHIN;
+    src: url(../fonts/MADE\ TOMMY\ Thin_PERSONAL\ USE.otf);
+    font-weight: Thin;
+}
+
+@font-face {
+    font-family: TommyREGULAR;
+    src: url(../fonts/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
+    font-weight: regular;
+}
+
+@font-face {
+    font-family: TommyEXTRA;
+    src: url(../fonts/MADE\ TOMMY\ ExtraBold_PERSONAL\ USE.otf);
+}
+
+@font-face {
+    font-family: Cali;
+    src: url(../fonts/cali.ttf);
+    font-weight: auto;
+}
