@@ -58,7 +58,7 @@ class ModelCommande {
 
 
 		public function save() {
-	        $insert_cmd = "INSERT INTO p_commande(idUser, idProduct, date, quantity) VALUES (:idUser, :idProduct, :date, :quantity)";
+	        $insert_cmd = "INSERT INTO p__commande(idUser, idProduct, date, quantity) VALUES (:idUser, :idProduct, :date, :quantity)";
 
 	        $req_prep = Model::getPDO()->prepare($insert_cmd);
 
