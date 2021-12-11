@@ -210,6 +210,41 @@ a {
     width: 20%!important;
 }
 
+.article {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.box_article {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    border: 5px solid black;
+    border-radius: 5rem;
+    align-items: center;
+    background-color: #262626;
+}
+
+.img_article {
+    width: 80%;
+}
+
+.box_article h3 {
+    color: white;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 3rem;
+    font-family: TommyREGULAR, Arial;
+}
+
+.black_bar {
+    background-color: black;
+    margin-top: 4rem;
+    height: 2px;
+    width: 100%;
+}
+
 @font-face {
     font-family: 'azonix';
     src: url("/FONTS/Azonix.otf");
