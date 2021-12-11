@@ -153,6 +153,18 @@ class ModelProduct {
         $req_prep->execute($values);
     }
 
+    public static function update($data) {
+        $sql = "UPDATE p__product SET price = :price, description = :description, image = :image WHERE name = :name";
+        $values = array(
+            "name" => $data['name'],
+            "price" => $data['price'],
+            "description" => $data['description'],
+            "image" => $data['image']
+        );
+        $req_prep = Model::getPDO()->prepare($sql);
+        $req_prep->execute($values);
+    }
+
 
 }
 
