@@ -10,22 +10,24 @@
         <h1 class="navbar_title">Hack-King</h1>
         <nav class="navbar_navigation">
             <ul class="navbar_list">
-                <li><a href="">Homepage</a></li>
-                <li class="scrollable"><a href="">Our products</a>
-                    <ul class="navbar_undermenu">
-                        <li><a href="">League of Legends</a></li>
-                        <li><a href="">Counter Strick - Global Offensive</a></li>
-                        <li><a href="">Among Us</a></li>
-                        <li><a href="">incoming..</a></li>
-                    </ul>
-                </li>
-                <li class="scrollable"><a href="">My account</a>
-                    <ul class="navbar_undermenu">
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Register</a></li>
-                    </ul>
-                </li>
-                <li><a href="">My cart</a></li>
+            <?php
+            if(isset($_SESSION['id'])){
+            ?>
+                <li><a href="./index.php">Homepage</a></li>
+                <li><a href="./index.php?action=readAll">Our products</a></li>
+                <li><a href="./index.php?action=profil">My account</a></li>
+                <li><a href="./index.php?action=readAllCart">My cart</a></li>
+            <?php
+            } else {
+            ?>
+                <li><a href="./index.php">Homepage</a></li>
+                <li><a href="./index.php?action=readAll">Our products</a></li>
+                <li><a href="./index.php?action=login">Login</a></li>
+                <li><a href="./index.php?action=register">Register</a></li>
+                <li><a href="./index.php?action=readAllCart">My cart</a></li>
+            <?php
+            }
+            ?>
             </ul>
         </nav>
     </div>
