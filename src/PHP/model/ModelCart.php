@@ -54,7 +54,7 @@ class ModelCart {
 		}
 
 		public function save() {
-	        $insert_cart = "INSERT INTO p_cart(idUser, idProduct, quantity) VALUES (:idUser, :idProduct, :quantity)";
+	        $insert_cart = "INSERT INTO p__cart(idUser, idProduct, quantity) VALUES (:idUser, :idProduct, :quantity)";
 
 	        $req_prep = Model::getPDO()->prepare($insert_cart);
 

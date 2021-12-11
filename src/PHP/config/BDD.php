@@ -1,3 +1,4 @@
+
 <?php
 
 $host = "webinfo";
@@ -13,5 +14,3 @@ try {
     die("Probleme SQL $dbname :" . $e->getMessage());
     
   }
-
-?>
