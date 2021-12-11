@@ -146,6 +146,13 @@ class ModelProduct {
         return $tab_prod[0];
     }
 
+    public static function deleteByName($name)  {
+        $sql = "DELETE FROM p__product WHERE name = :name";
+        $values = array("name" => $name);
+        $req_prep = Model::getPDO()->prepare($sql);
+        $req_prep->execute($values);
+    }
+
 
 }
 

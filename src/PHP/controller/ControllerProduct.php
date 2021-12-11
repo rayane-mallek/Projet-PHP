@@ -52,7 +52,20 @@ class ControllerProduct {
         $controller='account';
         $view='login';
         require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
-  }
+    }
+
+    public static function delete() {
+        ModelProduct::deleteByName($_GET['name']);
+        $tab_p = ModelProduct::getAllProducts();
+        $nameProduct = $_GET['name'];
+
+
+        $controller = 'product';
+        $view = 'deleted';
+        $pagetitle = 'Product deleted';
+        require File::build_path(array("view", "view.php"));    
+    }
+    
 }
 
 ?>
