@@ -1,12 +1,12 @@
 <form method="post" action='index.php?action=created'>
     <fieldset>
-        <legend>Mon formulaire :</legend>
+        <legend>Add a product:</legend>
             <p>
                 <label for="immat_id">Name</label> :
                 <input type="text" placeholder="A" name="name" id="name_id" required/>
             </p>
             <p>
-                <label for="marq_id">Price ($)</label> :
+                <label for="marq_id">Price (€)</label> :
                 <input type="text" placeholder="10" name="price" id="price_id" required/>
             </p>
             <p>

@@ -20,6 +20,15 @@ class ControllerProduct {
     	}
     }
 
+    public static function readAll() {
+        $tab_p = ModelProduct::getAllProducts();     //appel au modèle pour gerer la BD
+
+        $controller = 'product';
+        $view = 'list';
+        $pagetitle = 'List of products';
+        require File::build_path(array("view", "view.php"));  //"redirige" vers la vue
+    }
+
     public static function create() {
         $controller = 'product';
         $pagetitle = 'Create a product';

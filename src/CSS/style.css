@@ -198,6 +198,18 @@ html {
     width: 25rem;
 }
 
+p, h2, span {
+    color: white;
+}
+
+a {
+    color: lightblue;
+}
+
+.main-img {
+    width: 20%!important;
+}
+
 @font-face {
     font-family: 'azonix';
     src: url("/FONTS/Azonix.otf");
@@ -255,3 +267,4 @@ html {
     src: url(../fonts/cali.ttf);
     font-weight: auto;
 }
+

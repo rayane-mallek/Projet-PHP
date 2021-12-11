@@ -1,4 +1,3 @@
-<body>
     <section class="present_section_block">
         <div class="present_block">
             <h1 class="present_block_title">Are you looking for a hack for your favourite game?</h1>
@@ -21,4 +20,3 @@
             <button class="accordion-button">Article link</button>
         </div>
     </article>
-</body>
