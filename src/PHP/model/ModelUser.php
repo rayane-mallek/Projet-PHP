@@ -70,7 +70,11 @@ class ModelUser {
     }
 
     public static function getUSerById($idU) {
+<<<<<<< Updated upstream
         $sql = "SELECT * from voiture WHERE idUser=:idUser";
+=======
+        $sql = "SELECT * from p__user WHERE idUser=:idUser";
+>>>>>>> Stashed changes
         // Préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);
 
