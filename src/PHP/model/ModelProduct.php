@@ -88,7 +88,7 @@ class ModelProduct {
     }
 
     public function save() {
-        $insert_product = "INSERT INTO p__product(name, price, description) VALUES (:name, :price, :description)";
+        $insert_product = "INSERT INTO p_product(name, price, description) VALUES (:name, :price, :description)";
 
         $req_prep = Model::getPDO()->prepare($insert_product);
 
@@ -100,14 +100,14 @@ class ModelProduct {
     }
 
     public static function getAllProducts(){
-        $rep = Model::getPDO()->query("SELECT * FROM p__product");
+        $rep = Model::getPDO()->query("SELECT * FROM p_product");
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelProduct.php');
         $tab_prod = $rep->fetchAll();
         return $tab_prod;
     }
 
     public static function getProductById($idP) {
-        $sql = "SELECT * FROM p__product WHERE idProduct=:idProduct";
+        $sql = "SELECT * FROM p_product WHERE idProduct=:idProduct";
         // Préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);
 
@@ -127,7 +127,7 @@ class ModelProduct {
     }
 
     public static function getProductByName($name) {
-        $sql = "SELECT * FROM p__product WHERE name=:name";
+        $sql = "SELECT * FROM p_product WHERE name=:name";
         // Préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);
 

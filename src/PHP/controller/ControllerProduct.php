@@ -37,6 +37,13 @@ class ControllerProduct {
         $view = "created";
         require File::build_path(array("view", "view.php"));
     }
+
+    public static function login() {
+        $pagetitle = 'Hack-King - Connexion';
+        $controller='account';
+        $view='login';
+        require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
+  }
 }
 
 ?>
