@@ -112,9 +112,9 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
     <section class="clean-block clean-form dark" style="height: 830.188px;">
         <div class="container text-start" style="height: 459px;">
             <div class="block-heading" style="height: -5px;">
-                <h2 class="text-info" style="text-align: center;"><strong>S'inscrire</strong></h2>
+                <h2 class="text-info" style="text-align: center;"><strong>Create your Account</strong></h2>
             </div>
-            <p style="text-align: center;">Create your Account<br></p>
+            <p style="text-align: center;">Register<br></p>
             <form method="post">
                 <?php
                 if (isset($er_username)){
