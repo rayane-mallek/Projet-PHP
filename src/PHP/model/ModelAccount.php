@@ -10,8 +10,7 @@ require_once File::build_path(array("model","Model.php"));
 class ModelAccount {
 
 	private $idAccount;
-    private $firstname;
-    private $lastname;
+    private $username;
     private $email;
     //private $birthday;
     private $password;
@@ -27,12 +26,9 @@ class ModelAccount {
      * @param $description
      * @param $image
      */
-    public function __construct($username = null, $firstname = null, $lastname = null, $idAccount = null, $email = null, $password = null){
-        if (!is_null($firstname) && !is_null($lastname) && !is_null($idAccount) && !is_null($email) && !if_null($password)) {
+    public function __construct($username = null, $email = null, $password = null){
+        if (!is_null($username) && !is_null($email) && !if_null($password)) {
             $this->username = $username;
-            $this->firstname = $firstname;
-            $this->lastname = $lastname;
-            $this->idAccount = $idAccount;
             $this->email = $email;
             $this->password = $password;
         }
@@ -83,21 +79,15 @@ class ModelAccount {
         echo "Name : {$this->name} <br/>";
         echo "Price : {$this->price} <br/>";
         echo "Description : {$this->description} <br/>";
-        /*
-        echo "Image : <br/>";
-        ?>
-        <img src="<?php echo $this->image; ?>" alt="[image du produit]">"
-        <?php
-        */
     }
 
     public function save() {
-        $insert_product = "INSERT INTO p_product(name, price, description) VALUES (:name, :price, :description)";
+        $insert_product = "INSERT INTO p__user(username, email, password) VALUES (:username, :email, :password)";
 
         $req_prep = Model::getPDO()->prepare($insert_product);
 
         $req_prep->execute([
-            "name" => $this->name,
+            "username" => $this->$username,
             "price" => $this->price,
             "description" => $this->description
         ]);

@@ -78,16 +78,16 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
       if($ok){
 
         $password = crypt($password, '$6$rounds=5000$phpprojet$'); //cryptage du password
-        $datecreation = date('Y-m-d H:i:s');
         $token = bin2hex(random_bytes(12));
 
-        $req = $pdo->prepare("INSERT INTO p__user VALUES(username, email, password)
-        SET (username = :username, email = :email, password = :motdepasse)");
-        $req->execute(array('username' => $username, 'motdepasse' => $password, 'email' => $email));
-        
+        $req = $pdo->prepare("INSERT INTO p__user (username, email,password) VALUES (:username, :email,:password)");
+        $req->execute(array(
+          'username' => $username, 
+          'password' => $password, 
+          'email' => $email)
+        );
       
-
-        header('Location: ./index.php?controller=user&action=login'); //redirection vers la page
+        header('Location: ./index.php?controller=account&action=login'); //redirection vers la page
         exit;
       }
     }
@@ -114,7 +114,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
             <div class="block-heading" style="height: -5px;">
                 <h2 class="text-info" style="text-align: center;"><strong>S'inscrire</strong></h2>
             </div>
-            <p style="text-align: center;">Remplissez ce formulaire pour créer votre compte SauveteurExpress.<br></p>
+            <p style="text-align: center;">Create your Account<br></p>
             <form method="post">
                 <?php
                 if (isset($er_username)){
@@ -151,7 +151,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                   <input class="form-control" type="password" placeholder="Confirm Password" name="confpassword" id="confpassword" required></div>
 
                 <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" type="submit" name="inscription" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">S'inscrire</button>
-                <div></div><small>Vous avez déjà un compte ?&nbsp;<a href="index.php?action=login">Se connecter</a></small>
+                <div></div><small>You already have an account&nbsp;<a href="index.php?action=login">Se connecter</a></small>
             </form>
         </div>
     </section>
