@@ -212,7 +212,8 @@ a {
 
 .article {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: row;
     margin-top: 3rem;
 }
 
@@ -221,7 +222,7 @@ a {
     flex-direction: column;
     padding: 5rem;
     border: 5px solid black;
-    border-radius: 5rem;
+    border-radius: 3rem;
     align-items: center;
     background-color: #262626;
 }
@@ -233,17 +234,71 @@ a {
 .box_article h3 {
     color: white;
     text-align: center;
-    margin-top: 3rem;
     font-size: 3rem;
-    font-family: TommyREGULAR, Arial;
+    font-family: TommyMEDIUM, Arial;
+}
+
+.box_article p {
+    margin-top: 0;
+    padding: 0;
+    color: white;
+}
+
+h1 {
+    color: white;
+    font-family: TommyBLACK, Arial;
+}
+
+.h__article__price {
+    margin-top: 3.5rem;
 }
 
 .black_bar {
     background-color: black;
     margin-top: 4rem;
-    height: 2px;
+    height: 3px;
     width: 100%;
 }
+
+p {
+    font-family: TommyTHIN, Arial;
+    font-size: 1.5rem;
+    color: #AAAAAA;
+}
+
+.p__price {
+    font-size: 2rem;
+    font-family: TommyBOLD, Arial !important;
+}
+
+.purchs_btns {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-left: 70%;
+    margin-top: 35%;
+    background-color: black;
+    width: 15rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.buying_btn {
+    color: black;
+    background-color: #FFDADA;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.incart_btn {
+    color: black;
+    background-color: #FEFFDA;
+    margin-top: 1rem;
+    list-style-type: none;
+    text-decoration: none;
+}
+
 
 @font-face {
     font-family: 'azonix';
