@@ -15,4 +15,4 @@
 <?php endforeach; ?>
 </div>
 
-<a href="./index.php?action=create">Add a product</a>
+<a href="./index.php?controller=product&action=create">Add a product</a>
