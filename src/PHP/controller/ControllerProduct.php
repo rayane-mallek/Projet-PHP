@@ -52,53 +52,7 @@ class ControllerProduct {
         $controller='account';
         $view='login';
         require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
-    }
-
-    public static function delete() {
-        ModelProduct::deleteByName($_GET['name']);
-        $tab_p = ModelProduct::getAllProducts();
-        $nameProduct = $_GET['name'];
-
-
-        $controller = 'product';
-        $view = 'deleted';
-        $pagetitle = 'Product deleted';
-        require File::build_path(array("view", "view.php"));    
-    }
-
-    public static function update() {
-        $p = ModelProduct::getProductByName($_GET['name']);
-        $controller = 'product';
-        $view = 'update';
-        $pagetitle = 'Edit a product';
-    	require File::build_path(array("view", "view.php"));
-    }
-
-    public static function updated() {
-        $p = ModelProduct::getProductByName($_POST['name']);
-        $tab_p = ModelProduct::getAllProducts();
-
-        $data = array(
-            "name" => $_POST['name'],
-            "price" => $_POST['price'],
-            "description" => $_POST['description'],
-            "image" => $_POST['image']
-        );
-
-        $p->update($data);
-        $controller = 'product';
-        $view = 'updated';
-        $pagetitle = 'Product updated';
-        require File::build_path(array("view", "view.php"));
-    }
-
-    public static function error() {
-        $controller = 'product';
-        $view = 'error';
-        $pagetitle = 'Error';
-        require File::build_path(array("view", "view.php"));
-    }
-    
+  }
 }
 
 ?>

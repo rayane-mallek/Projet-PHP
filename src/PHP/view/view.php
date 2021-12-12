@@ -22,10 +22,10 @@
                 } else {
                 ?>
                     <li><a href="./index.php">Homepage</a></li>
-                    <li><a href="./index.php?controller=product&action=readAll">Our products</a></li>
-                    <li><a href="./index.php?controller=account&action=login">Login</a></li>
-                    <li><a href="./index.php?controller=account&action=register">Register</a></li>
-                    <li><a href="./index.php?controller=product&action=readAllCart">My cart</a></li>
+                    <li><a href="./index.php?action=readAll">Our products</a></li>
+                    <li><a href="./index.php?action=login">Login</a></li>
+                    <li><a href="./index.php?action=register">Register</a></li>
+                    <li><a href="./index.php?action=readAllCart">My cart</a></li>
                 <?php
                 }
                 ?>
@@ -39,9 +39,9 @@
         require $filepath;
     ?>
 
-    <footer>
+<!--    <footer>
         <p>&copy; , A. Mathiou, R. Mallek, F. Rivals, J. Renaud.</p>
-    </footer>
+    </footer> -->
 
 </body>
 </html>
