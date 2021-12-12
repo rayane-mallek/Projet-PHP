@@ -1,5 +1,5 @@
 <h3>Register form</h3>
-<form method="post" action="index.php?action=created&controller=user">
+<form method="post" action="index.php?controller=user&action=created">
     <label id="pres">Create your Account</label><br><br>
     <input type="text" name="username" id="username" placeholder="Username" required> <br>
     <input type="email" name="semail" id="semail" placeholder="Email" required> <br>

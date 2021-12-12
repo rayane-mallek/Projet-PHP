@@ -14,13 +14,13 @@
                 <?php
                     if(isset($_SESSION['id'])){
                 ?>
-                <li><a href="index.php?action=profil&controller=user">Profil</a></li>
+                <li><a href="index.php?controller=user&action=profil">Profil</a></li>
                 <li><a href="">My cart</a></li>
                 <?php 
                     } else {
                 ?>
-                <li><a href="index.php?action=register&controller=user">Register</a></li>
-                <li><a href="index.php?action=login&controller=user">Login</a></li>
+                <li><a href="index.php?controller=user&action=create">Register</a></li>
+                <li><a href="index.php?controller=user&action=login">Login</a></li>
                 <?php
                     }
                 ?>
