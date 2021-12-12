@@ -123,8 +123,8 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                 <?php 
                 }
               ?>
-                <div class="mb-3"><label class="form-label" for="username"><strong>username</strong><br></label>
-                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="20" type="text" placeholder="Votre username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
+                <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong><br></label>
+                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="20" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
 
                   <?php
                     if (isset($er_email)){
