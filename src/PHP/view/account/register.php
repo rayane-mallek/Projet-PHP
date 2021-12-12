@@ -133,8 +133,8 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                     <?php 
                     }
                   ?>
-                  <label class="form-label" for="email"><strong>Adresse Email</strong><br></label>
-                  <input class="form-control item" type="email" placeholder="Adresse email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
+                  <label class="form-label" for="email"><strong> Email</strong><br></label>
+                  <input class="form-control item" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
                               <?php
                               if (isset($er_password)){
                               ?>
@@ -142,13 +142,13 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                               <?php 
                               }
                             ?>
-                <div class="mb-3"><label class="form-label" for="password"><strong>Mot de passe</strong><br></label>
+                <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong><br></label>
 
-                  <input class="form-control" type="password" placeholder="Mot de passe" name="password" id="password" minlength="6" maxlength="50" required>
+                  <input class="form-control" type="password" placeholder="Password" name="password" id="password" minlength="6" maxlength="50" required>
 
-                  <label class="form-label" for="password"><strong>Confirmer le mot de passe</strong><br></label>
+                  <label class="form-label" for="password"><strong>Confirm Password</strong><br></label>
 
-                  <input class="form-control" type="password" placeholder="Confirmer le mot de passe" name="confpassword" id="confpassword" required></div>
+                  <input class="form-control" type="password" placeholder="Confirm Password" name="confpassword" id="confpassword" required></div>
 
                 <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" type="submit" name="inscription" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">S'inscrire</button>
                 <div></div><small>Vous avez déjà un compte ?&nbsp;<a href="index.php?action=login">Se connecter</a></small>
