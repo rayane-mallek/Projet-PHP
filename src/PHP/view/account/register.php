@@ -133,7 +133,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                     <?php 
                     }
                   ?>
-                  <label class="form-label" for="email"><strong> Email</strong><br></label>
+                  <label class="form-label" for="email"><strong>Email</strong><br></label>
                   <input class="form-control item" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
                               <?php
                               if (isset($er_password)){
