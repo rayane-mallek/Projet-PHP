@@ -91,6 +91,13 @@ class ControllerProduct {
         $pagetitle = 'Product updated';
         require File::build_path(array("view", "view.php"));
     }
+
+    public static function error() {
+        $controller = 'product';
+        $view = 'error';
+        $pagetitle = 'Error';
+        require File::build_path(array("view", "view.php"));
+    }
     
 }
 

@@ -1,4 +1,4 @@
-<form method="post" action='index.php?action=updated'>
+<form method="post" action='index.php?controller=product&action=updated'>
     <fieldset>
         <legend>Edit a product:</legend>
             <p>

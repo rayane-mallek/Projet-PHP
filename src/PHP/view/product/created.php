@@ -1,3 +1,3 @@
-<?= "Product created."
+<?= "<h2>Product created.<h2>"
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 require_once File::build_path(array("model","ModelAccount.php"));
 
-class ControllerProduct {
+class ControllerAccount {
 
     public static function login() {
         $pagetitle = 'Hack-King - Connexion';
