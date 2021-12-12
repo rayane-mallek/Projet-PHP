@@ -26,7 +26,7 @@ class ModelProduct {
      * @param $description
      * @param $image
      */
-    public function __construct($name, $price, $description, $image){
+    public function __construct($name = NULL, $price = NULL, $description = NULL, $image = NULL){
         if (!is_null($name) && !is_null($price) && !is_null($description) && !is_null($image)) {
             $this->name = $name;
             $this->price = $price;
