@@ -5,7 +5,7 @@ if ((isset($_SESSION['id']))){ //si une session existe déja (= utilisateur conn
   }
 
 if(!empty($_POST)){ //si le formulaire est vide ne rien faire
-    extract($_POST); //extrait les valeurs du form en 4 variables $pseudo $email $mdp $confmdp
+    extract($_POST); //extrait les valeurs du form en 4 variables $username $email $password $confpassword
 
 
     $ok = true;
@@ -13,25 +13,25 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
     if (isset($_POST['inscription'])){ //test pour le formulaire "inscription"
 
       //htmlentites = pour éviter les injections, trim = enleve les espaces au début et a la fin
-      $pseudo = htmlentities(trim($pseudo)); 
+      $username = htmlentities(trim($username)); 
       $email = htmlentities(strtolower(trim($email))); 
-      $mdp = trim($mdp); 
-      $confmdp = trim($confmdp); 
+      $password = trim($password); 
+      $confpassword = trim($confpassword); 
  
-      // Verif pseudo
-      if(empty($pseudo)){
+      // Verif username
+      if(empty($username)){
         $ok = false;
-        $er_pseudo = ("Le pseudo est vide");
+        $er_username = ("Le username est vide");
       }
       else{
 
-        //Verif que le pseudo existe pas déjà
-		$stmt = $pdo->prepare("SELECT * FROM NDI__User WHERE pseudo=?");
-		$stmt->execute([$pseudo]); 
-		$req_pseudo = $stmt->fetch();
-		if ($req_pseudo) {
+        //Verif que le username existe pas déjà
+		$stmt = $pdo->prepare("SELECT * FROM p__user WHERE username=?");
+		$stmt->execute([$username]); 
+		$req_username = $stmt->fetch();
+		if ($req_username) {
 			$ok = false;
-			$er_pseudo = "Ce pseudo existe déjà";
+			$er_username = "Ce username existe déjà";
         } 
     }
 
@@ -48,7 +48,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
       }else{
       		
         //On check dans la base de donnée si le mail existe déjà
-		$stmt = $pdo->prepare("SELECT * FROM NDI__User WHERE email=?");
+		$stmt = $pdo->prepare("SELECT * FROM p__user WHERE email=?");
 		$stmt->execute([$email]); 
 		$req_email = $stmt->fetch();
 		if ($req_email) {
@@ -58,38 +58,34 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
     }
 
       // Verif du mot de passe
-      if(empty($mdp)) {
+      if(empty($password)) {
         $ok = false;
-        $er_mdp = "Le mot de passe est vide";
+        $er_password = "Le mot de passe est vide";
 
  	  //verif que la confirmation du mp est valide
-      }elseif($mdp != $confmdp){
+      }elseif($password != $confpassword){
         $ok = false;
-        $er_mdp = "Les deux mots de passe ne correspondent pas";
+        $er_password = "Les deux mots de passe ne correspondent pas";
       
 
-      }elseif(strlen($mdp)<6){
+      }elseif(strlen($password)<6){
         $ok = false;
-        $er_mdp = "Le mot de passe doit faire au minimum 6 caractères.";
+        $er_password = "Le mot de passe doit faire au minimum 6 caractères.";
       
       }
  
       //on execute la requete sql si toutes les conditions sont valides
       if($ok){
 
-        $mdp = crypt($mdp, '$6$rounds=5000$nuitexpressSauveteurExpress$'); //cryptage du mdp
+        $password = crypt($password, '$6$rounds=5000$phpprojet$'); //cryptage du password
         $datecreation = date('Y-m-d H:i:s');
         $token = bin2hex(random_bytes(12));
 
-        $req = $pdo->prepare("INSERT INTO NDI__User
-        SET pseudo = :pseudo, motdepasse = :motdepasse, email = :email, date_creation = :datecreation");
-        $req->execute(array('pseudo' => $pseudo, 'motdepasse' => $mdp, 'email' => $email, 'datecreation' => $datecreation));
-
-
+        $req = $pdo->prepare("INSERT INTO p__user VALUES(username, email, password)
+        SET (username = :username, email = :email, password = :motdepasse)");
+        $req->execute(array('username' => $username, 'motdepasse' => $password, 'email' => $email));
         
-        
-
-        
+      
 
         header('Location: ./index.php?controller=user&action=login'); //redirection vers la page
         exit;
@@ -121,14 +117,14 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
             <p style="text-align: center;">Remplissez ce formulaire pour créer votre compte SauveteurExpress.<br></p>
             <form method="post">
                 <?php
-                if (isset($er_pseudo)){
+                if (isset($er_username)){
                 ?>
-                  <div><?= $er_pseudo ?></div>
+                  <div><?= $er_username ?></div>
                 <?php 
                 }
               ?>
-                <div class="mb-3"><label class="form-label" for="pseudo"><strong>Pseudo</strong><br></label>
-                  <input class="form-control item" type="text" id="pseudo" minlength="3" maxlength="20" type="text" placeholder="Votre pseudo" name="pseudo" value="<?php if(isset($pseudo)){ echo $pseudo; }?>" id="pseudo">
+                <div class="mb-3"><label class="form-label" for="username"><strong>username</strong><br></label>
+                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="20" type="text" placeholder="Votre username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
 
                   <?php
                     if (isset($er_email)){
@@ -140,19 +136,19 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                   <label class="form-label" for="email"><strong>Adresse Email</strong><br></label>
                   <input class="form-control item" type="email" placeholder="Adresse email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
                               <?php
-                              if (isset($er_mdp)){
+                              if (isset($er_password)){
                               ?>
-                                <div><?= $er_mdp ?></div>
+                                <div><?= $er_password ?></div>
                               <?php 
                               }
                             ?>
                 <div class="mb-3"><label class="form-label" for="password"><strong>Mot de passe</strong><br></label>
 
-                  <input class="form-control" type="password" placeholder="Mot de passe" name="mdp" id="mdp" minlength="6" maxlength="50" required>
+                  <input class="form-control" type="password" placeholder="Mot de passe" name="password" id="password" minlength="6" maxlength="50" required>
 
                   <label class="form-label" for="password"><strong>Confirmer le mot de passe</strong><br></label>
 
-                  <input class="form-control" type="password" placeholder="Confirmer le mot de passe" name="confmdp" id="confmdp" required></div>
+                  <input class="form-control" type="password" placeholder="Confirmer le mot de passe" name="confpassword" id="confpassword" required></div>
 
                 <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" type="submit" name="inscription" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">S'inscrire</button>
                 <div></div><small>Vous avez déjà un compte ?&nbsp;<a href="index.php?action=login">Se connecter</a></small>
