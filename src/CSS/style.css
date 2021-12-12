@@ -256,7 +256,7 @@ h1 {
 .black_bar {
     background-color: black;
     margin-top: 4rem;
-    height: 2px;
+    height: 3px;
     width: 100%;
 }
 
@@ -276,30 +276,29 @@ p {
     display: flex;
     flex-direction: column;
     margin-left: 70%;
-    margin-top: 30%;
-}
-
-.purchs_btns button {
-    font-size: 2rem;
+    margin-top: 35%;
+    background-color: black;
+    width: 15rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
 .buying_btn {
-    background-color: #C95858;
-    width: 100%;
-    height: 3rem;
+    color: black;
+    background-color: #FFDADA;
+    list-style-type: none;
+    text-decoration: none;
 }
 
-.cart_btn {
-    margin-top: 2rem;
-    width: 100%;
-    height: 3rem;
-    background-color: yellow;
+.incart_btn {
+    color: black;
+    background-color: #FEFFDA;
+    margin-top: 1rem;
+    list-style-type: none;
+    text-decoration: none;
 }
 
-.purchs_window {
-    display: flex;
-    flex-direction: row;
-}
 
 @font-face {
     font-family: 'azonix';

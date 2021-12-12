@@ -4,7 +4,7 @@
 
         <div class="black_bar"></div>
 
-        <h3><?php echo 'Article ' . htmlentities($p->getName()) ; ?></h3>
+        <h3><?php echo htmlentities($p->getName()) ?></h3>
 
         <h1 class="h__article">Description</h1>
         <p> <?= $p->getDescription() ?></p>
@@ -13,8 +13,7 @@
         <p class="p__price"> <?= $p->getPrice() ?>&#8364;</p>
     </div>
         <div class="purchs_btns">
-                <button class="buying_btn">Acheter maintenant</button>
-                <button class="cart_btn">Ajouter au panier</button>
+                <a class="buying_btn" href="#">Acheter maintenant</a>
+                <a class="incart_btn" href="#">Ajouter au panier</a>
         </div>
-
 </div>
