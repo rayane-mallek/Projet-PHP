@@ -90,7 +90,7 @@ class ControllerUser {
     }
 
     if($valid){
-      $user = new ModelVoiture($username, $semail, $hashpass);
+      $user = new ModelUser($username, $semail, $hashpass);
       $user->save();
       $controller='user';
       $view='created'
