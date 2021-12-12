@@ -31,7 +31,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
 
         //Verif que le username existe pas déjà
 		$stmt = $pdo->prepare("SELECT * FROM p__user WHERE username=:username");
-		$stmt->execute(["username" => $username]); 
+		$stmt->execute(['username' => $username]); 
 		$req_username = $stmt->fetch();
 		if ($req_username) {
 			$ok = false;
