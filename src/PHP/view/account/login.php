@@ -98,7 +98,7 @@
                   <?php
                     }
                   ?>
-                <div class="mb-3"><label class="" for="password"><strong>Password</strong><br></label>
+                <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong><br></label>
                   <input class="form-control" type="password" id="password" placeholder="password" name="password"></div>
                 <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" name="connexion" type="submit" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">Log in</button>
                 <div></div>Not yet registered? <a href="./index.php?controller=account&action=register">Register</a>
