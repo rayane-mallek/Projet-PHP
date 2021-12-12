@@ -66,7 +66,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Connexion</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -103,7 +103,7 @@
                 <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" name="connexion" type="submit" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">Log in</button>
                              
                 <div></div><small>Not yet registered? <a href="./index.php?controller=account&action=register">Register</a></small>
-                <a href="./index.php?controller=account&action=resetpassword">Forgot password ?</a>   
+                <div></div><a href="./index.php?controller=account&action=resetpassword">Forgot password ?</a>
             </form>
         </div>
     </section>
