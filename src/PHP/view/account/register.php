@@ -1,4 +1,8 @@
 <?php
+
+require_once './PHP/config/Conf.php';
+
+
 if ((isset($_SESSION['id']))){ //si une session existe déja (= utilisateur connecté) on redirige vers la page d'accueil
     header('Location: ../index.php');
     exit;
