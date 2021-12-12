@@ -98,9 +98,9 @@
                   <?php
                     }
                   ?>
-                <div class="mb-3"><label class="form-label" for="password"><strong>Password <a href="./index.php?action=resetpassword">Password oublié</a></strong><br></label>
+                <div class="mb-3"><label class="form-label" for="password"><strong>Password <a href="./index.php?action=resetpassword">forgot password</a></strong><br></label>
                   <input class="form-control" type="password" id="password" name="password"></div>
-                <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" name="connexion" type="submit" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">Se connecter</button>
+                <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" name="connexion" type="submit" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">Log in</button>
                 <div></div><small>Not yet registered? <a href="./index.php?action=register">Register</a></small>
             </form>
         </div>
