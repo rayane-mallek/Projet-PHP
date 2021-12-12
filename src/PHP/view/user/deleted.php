@@ -1,1 +1,0 @@
-<p>The user/account has been deleted</p>

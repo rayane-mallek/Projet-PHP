@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <?php
 /*
 foreach ($tab_v as $v): ?>
