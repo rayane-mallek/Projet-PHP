@@ -29,10 +29,10 @@
     </div>
 
 <?php
-// Si $controleur='user' et $view='list',
-// alors $filepath="/chemin_du_site/view/user/list.php"
-$filepath = File::build_path(array("view", $controller, "$view.php"));
-require $filepath;
+    // Si $controleur='user' et $view='list',
+    // alors $filepath="/chemin_du_site/view/user/list.php"
+    $filepath = File::build_path(array("view", $controller, "$view.php"));
+    require $filepath;
 ?>
 
 <p style="border: 1px solid black;text-align:right;padding-right:1em;">

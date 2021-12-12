@@ -8,8 +8,8 @@
 <body>
 
 <h3>Login</h3>
-<form method="post" action="index.php?action=login" >
-    <input type="email" name="lemail" id="lemail" placeholder="Votre Email" required> <br>
-    <input type="password" name="lpassword" id="lpassword" placeholder="Votre Mot de passe" required> <br>
-    <input type="submit" name="formlogin" id="formlogin" value="Se connecter" >
+<form method="post" action="index.php?action=connected&controller=user">
+    <input type="email" name="lemail" id="lemail" placeholder="Email" required> <br>
+    <input type="password" name="lpassword" id="lpassword" placeholder="Password" required> <br>
+    <input type="submit" name="formlogin" id="formlogin" value="Log in" >
 </form>

@@ -111,6 +111,8 @@ class ControllerUser {
 
   public static function connected(){
 
+    
+
   }
 
 }
