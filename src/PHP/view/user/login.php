@@ -30,17 +30,17 @@
     }
       
         
-      
+    $options = ['cost' => 12];  
+    //$password = password_hash($password, PASSWORD_BCRYPT, $options);  //on crypte le password avec la meme clé que pour l'inscription
 
-    $password= crypt($password, '$6$rounds=5000$phpprojet$'); //on crypte le password avec la meme clé que pour l'inscription
-    $token = bin2hex(random_bytes(12));
+    $req = Model::getPDO()->prepare("SELECT password FROM p__user WHERE email = :email"); 
+    $req->execute(array('email' => $email));
+    $hash = $req->fetchAll();
 
-    $req = Model::getPDO()->prepare("SELECT * FROM p__user WHERE email = :email AND password = :password"); 
-    $req->execute(array('email' => $email, 'password' => $password));
-    $resultat = $req->fetch();
+
     //on test si les valeurs du formulaire correspondent a la bdd
 
-    if (!$resultat) { //si la requete échoue
+    if (!password_verify($password, $hash)) { //si la requete échoue
       $ok = false;
       $er_email = "Le mail ou le mot de passe est incorrect";
     }
