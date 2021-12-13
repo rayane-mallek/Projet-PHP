@@ -28,7 +28,7 @@ session_start();
                     <li><a href="./index.php">Homepage</a></li>
                     <li><a href="./index.php?controller=product&action=readAll">Our products</a></li>
                     <li><a href="./index.php?controller=user&action=login">Login</a></li>
-                    <li><a href="./index.php?controller=user&action=register">Register</a></li>
+                    <li><a href="./index.php?controller=user&action=create">Register</a></li>
                     <li><a href="./index.php?controller=cart&action=getCart">My cart</a></li>
                 <?php
                 }
