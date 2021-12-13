@@ -1,11 +1,4 @@
 <?php
-  // Initialiser la session
-  session_start();
-  
-  // Détruire la session.
-  if(session_destroy())
-  {
-    // Redirection vers la page de connexion
-    header("Location: login.php");
-  }
+echo "<p>Successfully disconnected!";
+require File::build_path(array("view", "accueil","home.php"));
 ?>

@@ -105,13 +105,19 @@ class ControllerUser {
     $pagetitle = 'Hack-King - Connexion';
     $controller='user';
     $view='login';
-    require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
+    require File::build_path(array("view","view.php"));  //"redirige" vers la vue
 }
 
 
 
   public static function logout(){
-
+    session_name('projet');
+    session_start();
+    session_destroy();
+    $pagetitle = 'Disconnected';
+    $controller='user';
+    $view='logout';
+    require File::build_path(array("view","view.php"));
   }
 
 }
