@@ -81,8 +81,8 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
       //on execute la requete sql si toutes les conditions sont valides
       if($ok){
 
-        $password = crypt($password, '$6$rounds=5000$phpprojet$'); //cryptage du password
-        $token = bin2hex(random_bytes(12));
+        $options = ['cost' => 12];
+        $password = password_hash($password, PASSWORD_BCRYPT, $options);; //cryptage du password
 
         $req = Model::getPDO()->prepare("INSERT INTO p__user (username, email, password) VALUES (:username, :email,:password)");
         $req->execute(array(
@@ -91,7 +91,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
           'email' => $email)
         );
       
-        header('Location: ./index.php?controller=account&action=login'); //redirection vers la page
+        header('Location: ./index.php?controller=user&action=login'); //redirection vers la page
         exit;
       }
     }

@@ -1,6 +1,5 @@
 <?php session_name('projet');
 session_start();
-$_SESSION['cart'] = array();
 ?>
 
 <DOCTYPE html>
@@ -22,7 +21,7 @@ $_SESSION['cart'] = array();
                     <li><a href="./index.php">Homepage</a></li>
                     <li><a href="./index.php?action=readAll">Our products</a></li>
                     <li><a href="./index.php?action=profil">My account</a></li>
-                    <li><a href="./index.php?action=readAllCart">My cart</a></li>
+                    <li><a href="./index.php?controller=cart&action=readAll">My cart</a></li>
                 <?php
                 } else {
                 ?>
@@ -30,7 +29,7 @@ $_SESSION['cart'] = array();
                     <li><a href="./index.php?controller=product&action=readAll">Our products</a></li>
                     <li><a href="./index.php?controller=user&action=login">Login</a></li>
                     <li><a href="./index.php?controller=user&action=create">Register</a></li>
-                    <li><a href="./index.php?controller=cart&action=getCart">My cart</a></li>
+                    <li><a href="./index.php?controller=cart&action=readAll">My cart</a></li>
                 <?php
                 }
                 ?>

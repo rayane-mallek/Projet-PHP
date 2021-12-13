@@ -11,9 +11,11 @@ class ControllerCart {
 
     public static function addtocart() {
         array_push($_SESSION['cart'], $_GET['name']);
+        $tab_p = ModelProduct::getAllProducts();
+
         $controller = 'cart';
         $pagetitle = 'Added to cart';
-        $view = 'create';
+        $view = 'addedtocart';
         require_once File::build_path(array("view","view.php"));
     }
 
