@@ -108,18 +108,16 @@ class ControllerUser {
     require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
 }
 
-public static function register() {
-$pagetitle = 'Hack-King - Register';
-$controller='user';
-$view='register';
-require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
-}
+  public static function register() {
+    $pagetitle = 'Hack-King - Register';
+    $controller='user';
+    $view='register';
+    require File::build_path(array("view","view.php")); ;  //"redirige" vers la vue
+  }
 
 
-  public static function connected(){
-
+  public static function logout(){
     
-
   }
 
 }
