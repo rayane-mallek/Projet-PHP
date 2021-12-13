@@ -75,13 +75,13 @@
 </head>
 
 <body>
-    <section class="clean-block clean-form dark" style="height: 830.188px;">
-        <div class="container text-start" style="height: 459px;">
-            <div class="block-heading" style="height: -5px;">
-                <h2 class="text-info" style="text-align: center;"><strong>Log in</strong></h2>
+    <section class="full_box_login">
+        <div class="container_form_log">
+            <div class="block-heading">
+                <h2 class="text-info"><strong>Log in</strong></h2>
             </div>
-            <p style="text-align: center;"><br>Login form</p>
-            <form method="post">
+            <p><br>Login form</p>
+            <form method="post" class="login_form">
               <?php
               if (isset($er_email)){ //si $er_mail n'est pas vide, alors on l'affiche
               ?>
@@ -89,8 +89,8 @@
               <?php
                 }
               ?>
-                <div class="mb-3"><label class="form-label" for="email"><strong> Email</strong><br></label>
-                  <input class="form-control item" type="email" id="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" required></div>
+                <div class="mb-3"><label class="form-label" for="email" style="color: white; font-family: TommyTHIN, Arial;"><strong> Email</strong><br></label>
+                  <input class="form-control" type="email" id="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" required></div>
                   <?php
                   if (isset($er_password)){ //si $er_password n'est pas vide, alors on l'affiche
                   ?>
@@ -98,11 +98,24 @@
                   <?php
                     }
                   ?>
-                <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong><br></label>
-                  <input class="form-control" type="password" id="password" placeholder="password" name="password"></div>
-                <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" name="connexion" type="submit" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">Log in</button>
-                <div></div>Not yet registered? <a href="./index.php?controller=account&action=register">Register</a>
-                <div></div><a href="./index.php?controller=account&action=resetpassword">Forgot password ?</a>
+                  <br>
+                <div class="mb-3">
+                  <label class="form-label" for="password">
+                    <strong style="color: white; font-family: TommyTHIN, Arial;">Password</strong>
+                    <br>
+                  </label>
+                  <input class="form-control" type="password" id="password" placeholder="password" name="password">
+                </div>
+                <div class="mb-3">
+                </div>
+                <button class="btn btn-primary text-center" name="connexion" type="submit">Log in</button>
+                <div>
+                </div>
+                <p>Not yet registered?</p>
+                <a href="./index.php?controller=account&action=register">Register</a>
+                <div>
+                </div>
+                <a href="./index.php?controller=account&action=resetpassword">Forgot password ?</a>
             </form>
         </div>
     </section>
