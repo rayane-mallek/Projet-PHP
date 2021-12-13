@@ -34,11 +34,19 @@
     $options = ['cost' => 12];  
     //$password = password_hash($password, PASSWORD_BCRYPT, $options);  //on crypte le password avec la meme clé que pour l'inscription
 
+<<<<<<< HEAD
     $req = Model::getPDO()->prepare("SELECT password FROM p__user WHERE email = :email"); 
     $req->execute(array('email' => $email));
     $hash = $req->fetchAll();
     $hashed_pwd = $hash[0]['password'];
 
+=======
+    $password= crypt($password, '$6$rounds=5000$phpprojet$'); //on crypte le password avec la meme clé que pour l'inscription
+
+    $req = Model::getPDO()->prepare("SELECT * FROM p__user WHERE email = :email AND password = :password"); 
+    $req->execute(array('email' => $email, 'password' => $password));
+    $resultat = $req->fetch();
+>>>>>>> 7c03c45411db7e3d30c273fca3456f5f3668e162
     //on test si les valeurs du formulaire correspondent a la bdd
     if (!password_verify($password, $hashed_pwd)) { 
       $ok = false;
@@ -51,10 +59,16 @@
 
     if ($ok){
      //si tout est valide, alors on charge une session avec les attributs de la requete
+<<<<<<< HEAD
       $_SESSION['id'] = $resultat[0]['idUser']; 
       $_SESSION['username'] = htmlentities($resultat[0]['username']); //htmlentities pour éviter les injections html/php
       $_SESSION['email'] = htmlentities($resultat[0]['email']);
 
+=======
+      $_SESSION['id'] = $resultat['id']; 
+      $_SESSION['username'] = htmlentities($resultat['username']); //htmlentities pour éviter les injections html/php
+      $_SESSION['email'] = htmlentities($resultat['email']);
+>>>>>>> 7c03c45411db7e3d30c273fca3456f5f3668e162
 
       header('Location: ./index.php'); //on redirige l'utilisateur vers la page d'accueil
       exit;
