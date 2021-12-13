@@ -35,7 +35,7 @@
 
     $password= crypt($password, '$6$rounds=5000$phpprojet$'); //on crypte le password avec la meme clé que pour l'inscription
 
-    $req = $pdo->prepare("SELECT * FROM p__user WHERE email = :email AND password = :password"); 
+    $req = Model::getPDO()->prepare("SELECT * FROM p__user WHERE email = :email AND password = :password"); 
     $req->execute(array('email' => $email, 'password' => $password));
     $resultat = $req->fetch();
     //on test si les valeurs du formulaire correspondent a la bdd

@@ -11,8 +11,8 @@ class ModelUser {
 
 	private $idUser;
 	private $username;
-    private $password;
     private $email;
+    private $password;
 
     // Le Constructeur
     public function __construct($username = NULL, $email = NULL, $password = NULL) {
@@ -23,23 +23,6 @@ class ModelUser {
         }
     }
     // Les Getters
-
-    public function getIdUser() {
-        if (isset($idUser)) {
-            return $this->idUser;
-        } else {
-            $sql = "SELECT idUser FROM p__user WHERE username = :username";
-            $req_prep = Model::getPDO()->prepare($sql);
-            $req_prep->execute([
-                "username" => $this->username
-            ]);
-            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
-            $value = $req_prep->fetchAll();
-            $this->idUser = $value[0];
-            return $this->idUser;
-        }
-    }
- 
     public function getUsername(){
         return $this->username;
     }
@@ -82,7 +65,25 @@ class ModelUser {
             "password" => $this->password,
             "email" => $this->email
         ]);
+<<<<<<< HEAD
 
+=======
+        
+        $sql = "SELECT idUser from p__user WHERE email=:email";
+        // Préparation de la requête
+        $req_prep = Model::getPDO()->prepare($sql);
+
+        $values = array(
+            "email" => $this->email,
+        );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+        // On récupère les résultats comme précédemment
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+        $tab_id = $req_prep->fetchAll();
+
+        //$idUser => $tab_id;
+>>>>>>> origin/newLogin
 
     }
 
@@ -99,7 +100,11 @@ class ModelUser {
 
         // On récupère les résultats comme précédemment
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+<<<<<<< HEAD
         $tab_prod = $req_prep->fetchAll();
+=======
+        $tab_us = $req_prep->fetchAll();
+>>>>>>> origin/newLogin
         // Attention, si il n'y a pas de résultats, on renvoie false
         if (empty($tab_us))
             return false;
