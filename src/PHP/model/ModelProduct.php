@@ -5,7 +5,6 @@ $DS = DIRECTORY_SEPARATOR;
 require_once $ROOT_FOLDER . $DS . '..' . $DS . 'lib' . $DS . 'File.php';
 
 require_once File::build_path(array("model","Model.php"));
-require_once File::build_path(array("config", "BDD.php"));
 
 
 class ModelProduct {
@@ -26,7 +25,7 @@ class ModelProduct {
      * @param $description
      * @param $image
      */
-    public function __construct($name = NULL, $price = NULL, $description = NULL, $image = NULL){
+    public function __construct($name = null, $price = null, $description = null, $image = null){
         if (!is_null($name) && !is_null($price) && !is_null($description) && !is_null($image)) {
             $this->name = $name;
             $this->price = $price;
@@ -100,7 +99,7 @@ class ModelProduct {
         ]);
     }
 
-    public function getAllProducts(){
+    public static function getAllProducts(){
         $rep = Model::getPDO()->query("SELECT * FROM p__product");
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelProduct');
         $tab_prod = $rep->fetchAll();
@@ -108,7 +107,7 @@ class ModelProduct {
     }
 
     public static function getProductById($idP) {
-        $sql = "SELECT * from p__product WHERE idProduct=:idProduct";
+        $sql = "SELECT * FROM p__product WHERE idProduct=:idProduct";
         // Préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);
 
@@ -125,6 +124,45 @@ class ModelProduct {
         if (empty($tab_prod))
             return false;
         return $tab_prod[0];
+    }
+
+    public static function getProductByName($name) {
+        $sql = "SELECT * FROM p__product WHERE name=:name";
+        // Préparation de la requête
+        $req_prep = Model::getPDO()->prepare($sql);
+
+        $values = array(
+            "name" => $name
+        );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+
+        // On récupère les résultats comme précédemment
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelProduct');
+        $tab_prod = $req_prep->fetchAll();
+        // Attention, si il n'y a pas de résultats, on renvoie false
+        if (empty($tab_prod))
+            return false;
+        return $tab_prod[0];
+    }
+
+    public static function deleteByName($name)  {
+        $sql = "DELETE FROM p__product WHERE name = :name";
+        $values = array("name" => $name);
+        $req_prep = Model::getPDO()->prepare($sql);
+        $req_prep->execute($values);
+    }
+
+    public static function update($data) {
+        $sql = "UPDATE p__product SET price = :price, description = :description, image = :image WHERE name = :name";
+        $values = array(
+            "name" => $data['name'],
+            "price" => $data['price'],
+            "description" => $data['description'],
+            "image" => $data['image']
+        );
+        $req_prep = Model::getPDO()->prepare($sql);
+        $req_prep->execute($values);
     }
 
 

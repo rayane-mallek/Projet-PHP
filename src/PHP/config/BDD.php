@@ -1,10 +1,9 @@
-
 <?php
 
 $host = "webinfo";
-$dbname = "gaidot";
-$password = "passedemot";
-$username = "gaidot";
+$dbname = "mallekr";
+$password = "mallekr";
+$username = "mallekr";
 
 try {  
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);    
@@ -14,3 +13,5 @@ try {
     die("Probleme SQL $dbname :" . $e->getMessage());
     
   }
+
+?>

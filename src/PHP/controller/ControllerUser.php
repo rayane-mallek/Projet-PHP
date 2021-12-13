@@ -11,7 +11,7 @@ class ControllerUser {
 
   public static function create(){
     $controller='user';
-    $view='create'
+    $view='create';
     $pagetitle = 'Form';
     require File::build_path(array("view", "view.php"));
   }
@@ -93,7 +93,7 @@ class ControllerUser {
       $user = new ModelUser($username, $semail, $hashpass);
       $user->save();
       $controller='user';
-      $view='created'
+      $view='created';
       $pagetitle = 'Create';
       require File::build_path(array("view", "view.php"));
     }
@@ -103,7 +103,7 @@ class ControllerUser {
 
   public static function login(){
     $controller='user';
-    $view='login'
+    $view='login';
     $pagetitle = 'Login Form';
     require File::build_path(array("view", "view.php"));
   }
