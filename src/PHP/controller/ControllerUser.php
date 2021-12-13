@@ -47,7 +47,7 @@ class ControllerUser {
           $req_prepE->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
           $tab_ve = $req_prepE->fetchAll();
 
-          $resultE = $tab_ve->rowCount();
+          $resultE = $req_prepE->rowCount();
 
           if($resultE != 0){
             $valid = false;
@@ -64,7 +64,7 @@ class ControllerUser {
           $req_prepU->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
           $tab_vu = $req_prepU->fetchAll();
 
-          $resultU = $tab_vu->rowCount();
+          $resultU = $req_prepE->rowCount();
 
           if($resultU != 0){
             $valid = false;

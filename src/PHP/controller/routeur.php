@@ -1,7 +1,7 @@
 <?php
 
 require_once File::build_path(array("controller", "ControllerProduct.php"));
-require_once File::build_path(array("controller", "ControllerAccount.php"));
+require_once File::build_path(array("controller", "ControllerUser.php"));
 
 if (!isset($_GET['action'])) {
     $controller = 'accueil';
