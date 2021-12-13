@@ -111,8 +111,6 @@ class ControllerUser {
 
 
   public static function logout(){
-    session_name('projet');
-    session_start();
     session_destroy();
     $pagetitle = 'Disconnected';
     $controller='user';

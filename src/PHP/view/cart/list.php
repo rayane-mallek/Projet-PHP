@@ -1,4 +1,5 @@
 <div class="all_products">
+<h2>MY CART</h2>
 <?php foreach ($tab_p as $p): ?>
         <div class="product_window">
             <div class="box_products">
