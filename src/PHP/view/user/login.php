@@ -51,16 +51,10 @@
 
     if ($ok){
      //si tout est valide, alors on charge une session avec les attributs de la requete
-<<<<<<< HEAD
       $_SESSION['id'] = $resultat[0]['idUser']; 
       $_SESSION['username'] = htmlentities($resultat[0]['username']); //htmlentities pour éviter les injections html/php
       $_SESSION['email'] = htmlentities($resultat[0]['email']);
 
-=======
-      $_SESSION['id'] = $resultat['id']; 
-      $_SESSION['username'] = htmlentities($resultat['username']); //htmlentities pour éviter les injections html/php
-      $_SESSION['email'] = htmlentities($resultat['email']);
->>>>>>> 7c03c45411db7e3d30c273fca3456f5f3668e162
 
       header('Location: ./index.php'); //on redirige l'utilisateur vers la page d'accueil
       exit;
