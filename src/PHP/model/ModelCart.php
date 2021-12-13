@@ -64,6 +64,14 @@ class ModelCart {
 	            "quantity" => $this->quantity
 	        ]);
 	    }
+
+		public static function getCart(){
+			$rep = Model::getPDO()->query("SELECT * FROM p__cart");
+			$rep->setFetchMode(PDO::FETCH_CLASS, 'ModelCart');
+			$tab_c = $rep->fetchAll();
+
+			return $tab_c;
+		}
 	}
 
 ?>
