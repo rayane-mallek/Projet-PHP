@@ -19,6 +19,7 @@
     //htmlentites = pour éviter les injections, trim = enleve les espaces au début et a la fin
     $email = htmlentities(strtolower(trim($email)));
     $password = trim($_POST['password']);
+
     if(empty($email)){ //test si email est vide
       $ok = false;
       $er_email = "L'email est vide";
@@ -36,28 +37,29 @@
     $req = Model::getPDO()->prepare("SELECT password FROM p__user WHERE email = :email"); 
     $req->execute(array('email' => $email));
     $hash = $req->fetchAll();
-
+    $hashed_pwd = $hash[0]['password'];
 
     //on test si les valeurs du formulaire correspondent a la bdd
-
-    if (!password_verify($password, $hash)) { //si la requete échoue
+    if (!password_verify($password, $hashed_pwd)) { 
       $ok = false;
       $er_email = "Le mail ou le mot de passe est incorrect";
     }
 
+    $req = Model::getPDO()->prepare("SELECT * FROM p__user WHERE email = :email"); 
+    $req->execute(array('email' => $email));
+    $resultat = $req->fetchAll();
+
     if ($ok){
      //si tout est valide, alors on charge une session avec les attributs de la requete
-      $_SESSION['id'] = $resultat['id']; 
-      $_SESSION['username'] = htmlentities($resultat['username']); //htmlentities pour éviter les injections html/php
-      $_SESSION['email'] = htmlentities($resultat['email']);
+      $_SESSION['id'] = $resultat[0]['idUser']; 
+      $_SESSION['username'] = htmlentities($resultat[0]['username']); //htmlentities pour éviter les injections html/php
+      $_SESSION['email'] = htmlentities($resultat[0]['email']);
 
-      $req = $pdo->prepare("INSERT INTO NDI__User
-      SET username = :username, motdepasse = :motdepasse, email = :email, date_creation = :datecreation");
-      $req->execute(array('username' => $_SESSION['username'], 'password' => $password, 'email' => $email));
 
       header('Location: ./index.php'); //on redirige l'utilisateur vers la page d'accueil
       exit;
     }
+
   }
 }
 
