@@ -23,8 +23,8 @@
                 ?>
                     <li><a href="./index.php">Homepage</a></li>
                     <li><a href="./index.php?controller=product&action=readAll">Our products</a></li>
-                    <li><a href="./index.php?controller=account&action=login">Login</a></li>
-                    <li><a href="./index.php?controller=account&action=register">Register</a></li>
+                    <li><a href="./index.php?controller=user&action=login">Login</a></li>
+                    <li><a href="./index.php?controller=user&action=register">Register</a></li>
                     <li><a href="./index.php?controller=product&action=readAllCart">My cart</a></li>
                 <?php
                 }
