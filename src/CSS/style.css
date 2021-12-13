@@ -351,6 +351,51 @@ p {
     font-family: TommyBOLD, Arial;
 }
 
+/* Login page */
+
+.full_box_login {
+    display: flex;
+    justify-content: center;
+}
+
+.login_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block-heading h2 {
+    font-size: 3rem;
+    font-family: TommyREGULAR, Arial;
+}
+
+.m {
+    background: rgb(12,36,97);
+    border-radius: 13px;
+    border-color: rgb(12,36,97);
+    margin: 5px;
+    height: 39px;
+    padding: 7px 12px;
+    transform: scale(1.13);
+    font-size: 14px;
+    font-weight: bold;
+    width: 130.344px;
+}
+
+.form-control {
+    padding: 7px 12px;
+    width: 20rem;
+    height: 1.6rem;
+    border-radius: 0.4rem;
+}
+
+.container_form_log {
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
 
 @font-face {
     font-family: 'azonix';
