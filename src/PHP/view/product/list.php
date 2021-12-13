@@ -18,4 +18,6 @@
 <?php endforeach; ?>
 </div>
 
-<a href="./index.php?controller=product&action=create">Add a product</a>
+<div class="add_product">
+    <a href="./index.php?controller=product&action=create">Add a product</a>
+</div>

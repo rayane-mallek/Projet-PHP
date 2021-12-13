@@ -65,9 +65,6 @@ class ModelUser {
             "password" => $this->password,
             "email" => $this->email
         ]);
-<<<<<<< HEAD
-
-=======
         
         $sql = "SELECT idUser from p__user WHERE email=:email";
         // Préparation de la requête
@@ -83,7 +80,6 @@ class ModelUser {
         $tab_id = $req_prep->fetchAll();
 
         //$idUser => $tab_id;
->>>>>>> origin/newLogin
 
     }
 
@@ -100,11 +96,8 @@ class ModelUser {
 
         // On récupère les résultats comme précédemment
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
-<<<<<<< HEAD
-        $tab_prod = $req_prep->fetchAll();
-=======
+
         $tab_us = $req_prep->fetchAll();
->>>>>>> origin/newLogin
         // Attention, si il n'y a pas de résultats, on renvoie false
         if (empty($tab_us))
             return false;
