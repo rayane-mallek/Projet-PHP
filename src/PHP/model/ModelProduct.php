@@ -51,6 +51,7 @@ class ModelProduct {
     public function getDescription(){
         return $this->description;
     }
+    
     public function getImage(){return $this->image;}
 
     // Les Setters
@@ -145,6 +146,8 @@ class ModelProduct {
             return false;
         return $tab_prod[0];
     }
+
+    
 
 
 }

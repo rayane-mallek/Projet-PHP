@@ -23,6 +23,23 @@ class ModelUser {
         }
     }
     // Les Getters
+
+    public function getIdUser() {
+        if (isset($idUser)) {
+            return $this->idUser;
+        } else {
+            $sql = "SELECT idUser FROM p__user WHERE username = :username";
+            $req_prep = Model::getPDO()->prepare($sql);
+            $req_prep->execute([
+                "username" => $this->username
+            ]);
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+            $value = $req_prep->fetchAll();
+            $this->idUser = $value[0];
+            return $this->idUser;
+        }
+    }
+ 
     public function getUsername(){
         return $this->username;
     }
