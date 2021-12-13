@@ -207,8 +207,150 @@ a {
 }
 
 .main-img {
-    width: 20%!important;
+    height: 10rem !important; 
+    width: 10rem !important;
+    padding-right: 3rem;
 }
+
+.article {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 3rem;
+}
+
+.box_article {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    border: 5px solid black;
+    border-radius: 3rem;
+    align-items: center;
+    background-color: #262626;
+}
+
+.img_article {
+    width: 80%;
+}
+
+.box_article h3 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-family: TommyMEDIUM, Arial;
+}
+
+.box_article p {
+    margin-top: 0;
+    padding: 0;
+    color: white;
+}
+
+h1 {
+    color: white;
+    font-family: TommyBLACK, Arial;
+}
+
+.h__article__price {
+    margin-top: 3.5rem;
+}
+
+.black_bar {
+    background-color: black;
+    margin-top: 4rem;
+    height: 3px;
+    width: 100%;
+}
+
+p {
+    font-family: TommyTHIN, Arial;
+    font-size: 1.5rem;
+    color: #AAAAAA;
+}
+
+.p__price {
+    font-size: 2rem;
+    font-family: TommyBOLD, Arial !important;
+}
+
+.purchs_btns {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-left: 70%;
+    margin-top: 35%;
+    background-color: black;
+    width: 15rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.buying_btn {
+    color: black;
+    background-color: #FFDADA;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.incart_btn {
+    color: black;
+    background-color: #FEFFDA;
+    margin-top: 1rem;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.product_window {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    justify-content: center;
+    align-content: space-between !important;
+}
+
+.box_products {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 2rem;
+    padding: 2rem;
+    width: 60%;
+    align-items: center;
+    background-color: black;
+}
+
+.all_products {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.desc_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.desc_box h2 {
+    font-size: 2rem;
+    font-family: TommyBLACK, Arial;
+}
+
+.desc_box p {
+    font-size: 1rem;
+    font-family: TommyTHIN, Arial;
+    margin-top: 0;
+}
+
+.price {
+    font-family: TommyREGULAR, Arial;
+}
+
+.article_show {
+    font-family: TommyBOLD, Arial;
+}
+
 
 @font-face {
     font-family: 'azonix';
