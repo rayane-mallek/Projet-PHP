@@ -358,8 +358,20 @@ p {
     justify-content: center;
 }
 
+.full_box_register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .login_form {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register_form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -368,19 +380,6 @@ p {
 .block-heading h2 {
     font-size: 3rem;
     font-family: TommyREGULAR, Arial;
-}
-
-.m {
-    background: rgb(12,36,97);
-    border-radius: 13px;
-    border-color: rgb(12,36,97);
-    margin: 5px;
-    height: 39px;
-    padding: 7px 12px;
-    transform: scale(1.13);
-    font-size: 14px;
-    font-weight: bold;
-    width: 130.344px;
 }
 
 .form-control {
@@ -395,6 +394,19 @@ p {
     display: flex;
     flex-direction: column;
     padding: 3rem;
+}
+
+.container_form_reg {
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    align-items: center;
+}
+
+.form-label {
+    display: flex;
+    flex-direction: column;
 }
 
 @font-face {

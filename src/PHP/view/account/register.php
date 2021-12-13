@@ -113,13 +113,13 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
 </head>
 
 <body>
-    <section class="clean-block clean-form dark" style="height: 830.188px;">
-        <div class="container text-start" style="height: 459px;">
-            <div class="block-heading" style="height: -5px;">
-                <h2 class="text-info" style="text-align: center;"><strong>Create your Account</strong></h2>
+    <section class="fullo_box_register">
+        <div class="container_form_reg">
+            <div class="block-heading">
+                <h2 class="text-info"><strong>Create your Account</strong></h2>
             </div>
-            <p style="text-align: center;">Register<br></p>
-            <form method="post">
+            <p>Register<br></p>
+            <form method="post" class="register_form">
                 <?php
                 if (isset($er_username)){
                 ?>
@@ -127,8 +127,8 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                 <?php 
                 }
               ?>
-                <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong><br></label>
-                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="20" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
+                <div class="mb-3"><label class="form-label" for="username" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Username</strong><br></label>
+                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="40" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
 
                   <?php
                     if (isset($er_email)){
@@ -137,8 +137,8 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                     <?php 
                     }
                   ?>
-                  <label class="form-label" for="email"><strong>Email</strong><br></label>
-                  <input class="form-control item" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
+                  <label class="form-label" for="email" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Email</strong><br></label>
+                  <input class="form-control" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
                               <?php
                               if (isset($er_password)){
                               ?>
@@ -146,16 +146,16 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                               <?php 
                               }
                             ?>
-                <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong><br></label>
+                <div class="mb-3"><label class="form-label" for="password" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Password</strong><br></label>
 
                   <input class="form-control" type="password" placeholder="Password" name="password" id="password" minlength="6" maxlength="50" required>
 
-                  <label class="form-label" for="password"><strong>Confirm Password</strong><br></label>
+                  <label class="form-label" for="password" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Confirm Password</strong><br></label>
 
                   <input class="form-control" type="password" placeholder="Confirm Password" name="confpassword" id="confpassword" required></div>
 
-                <div class="mb-3" style="width: 435px;height: -65px;margin: 20px;padding: 0px;"></div><button class="btn btn-primary text-center" type="submit" name="inscription" style="background: rgb(12,36,97);border-radius: 13px;border-color: rgb(12,36,97);margin: 5px;height: 39px;padding: 7px 12px;transform: scale(1.13);font-size: 14px;font-weight: bold;width: 130.344px;">S'inscrire</button>
-                <div></div><small>You already have an account&nbsp;<a href="index.php?action=login">Se connecter</a></small>
+                <div class="mb-3"></div><button class="btn btn-primary text-center" type="submit" name="inscription">S'inscrire</button>
+                <div></div><h1 style="font-family: TommyTHIN, Arial; color: white;">You already have an account? <a href="index.php?action=login">Login</a></h1>
             </form>
         </div>
     </section>
