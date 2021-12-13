@@ -26,9 +26,9 @@ class ControllerCart {
 
         $tab_p = ModelProduct::getAllProducts();
 
-        $controller = 'cart';
-        $pagetitle = 'Removed from cart';
-        $view = 'removedfromcart';
+        $controller = 'product';
+        $pagetitle = 'List of products';
+        $view = 'list';
         require_once File::build_path(array("view","view.php"));
     }
 
