@@ -15,6 +15,7 @@
                     <a class="article_show" href="./index.php?action=read&name=<?= rawurlencode($p->getName()) ?>"> Show article</a>
                 </div>
             </div>
+            <a href="./index.php?controller=cart&action=removefromcart&name=<?= rawurlencode($p->getName()) ?>">Remove</a>
         </div>
 <?php endforeach; ?>
 </div>

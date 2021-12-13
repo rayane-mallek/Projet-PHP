@@ -40,9 +40,9 @@
         require $filepath;
     ?>
 
-<!--    <footer>
+    <footer>
         <p>&copy; , A. Mathiou, R. Mallek, F. Rivals, J. Renaud.</p>
-    </footer> -->
+    </footer>
 
 </body>
 </html>

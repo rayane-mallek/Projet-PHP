@@ -19,6 +19,19 @@ class ControllerCart {
         require_once File::build_path(array("view","view.php"));
     }
 
+    public static function removefromcart() {
+        if (($key = array_search($_GET['name'], $_SESSION['cart'])) !== false) {
+            unset($_SESSION['cart'][$key]);
+        }
+
+        $tab_p = ModelProduct::getAllProducts();
+
+        $controller = 'cart';
+        $pagetitle = 'Removed from cart';
+        $view = 'removedfromcart';
+        require_once File::build_path(array("view","view.php"));
+    }
+
     public static function readAll(){
         $tab_p = array();
         foreach($_SESSION['cart'] as $product) {
