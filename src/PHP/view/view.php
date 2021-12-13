@@ -1,5 +1,6 @@
 <?php session_name('projet');
 session_start();
+$_SESSION['cart'] = array();
 ?>
 
 <DOCTYPE html>

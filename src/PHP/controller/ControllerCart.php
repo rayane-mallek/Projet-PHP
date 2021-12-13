@@ -9,22 +9,26 @@ require_once File::build_path(array("model", "ModelCart.php"));
 
 class ControllerCart {
 
-    public static function read() {
+    public static function addtocart() {
+        array_push($_SESSION['cart'], $_GET['name']);
+        $controller = 'cart';
+        $pagetitle = 'Added to cart';
+        $view = 'create';
+        require_once File::build_path(array("view","view.php"));
     }
 
-    public static function create() {
-        require ('../view/user/create.php');
+    public static function readAll(){
+        $tab_p = array();
+        foreach($_SESSION['cart'] as $product) {
+            array_push($tab_p, ModelProduct::getProductByName($product));
+        }
+
+        $pagetitle = 'My cart';
+        $controller='cart';
+        $view='list';
+        require File::build_path(array("view","view.php"));
+
     }
-
-    public static function created() {
-        $user = new ModelCart($_POST['name'], $_POST['price'], $_POST['description'],$_POST['image']);
-        $user->save();
-        self::readAll();
-    }
-
-    public static function delete(){}
-
-    public static function deleted(){}
 
 }
 ?>

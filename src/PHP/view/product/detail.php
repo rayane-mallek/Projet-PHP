@@ -14,6 +14,6 @@
     </div>
         <div class="purchs_btns">
                 <a class="buying_btn" href="#">Acheter maintenant</a>
-                <a class="incart_btn" href="./index.php?action=added_to_cart">Ajouter au panier</a>
+                <a class="incart_btn" href="./index.php?controller=cart&action=addtocart&name=<?= $p->getName() ?>">Ajouter au panier</a>
         </div>
 </div>

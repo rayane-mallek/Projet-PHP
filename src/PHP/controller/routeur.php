@@ -2,6 +2,7 @@
 
 require_once File::build_path(array("controller", "ControllerProduct.php"));
 require_once File::build_path(array("controller", "ControllerUser.php"));
+require_once File::build_path(array("controller", "ControllerCart.php"));
 
 if (!isset($_GET['action'])) {
     $controller = 'accueil';
