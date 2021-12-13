@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des voitures</title>
-</head>
-<body>
-<?php
-foreach ($tab_p as $p)
-    echo '<p> Product with id=' . $p->getIDProduct() . '.</p>';
-?>
-</body>
-</html>
-=======
 <div style="display: flex; flex-wrap: wrap;justify-content: center;">
 <?php foreach ($tab_p as $p): ?>
 
@@ -31,4 +16,3 @@ foreach ($tab_p as $p)
 </div>
 
 <a href="./index.php?controller=product&action=create">Add a product</a>
->>>>>>> master

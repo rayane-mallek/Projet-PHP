@@ -30,7 +30,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
       else{
 
         //Verif que le username existe pas déjà
-		$stmt = $pdo->prepare("SELECT * FROM p__user WHERE username=:username");
+		$stmt = Model::getPDO()->prepare("SELECT * FROM p__user WHERE username=:username");
 		$stmt->execute(['username' => $username]); 
 		$req_username = $stmt->fetch();
 		if ($req_username) {
@@ -52,7 +52,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
       }else{
       		
         //On check dans la base de donnée si le mail existe déjà
-		$stmt = $pdo->prepare("SELECT * FROM p__user WHERE email=?");
+		$stmt = Model::getPDO()->prepare("SELECT * FROM p__user WHERE email=?");
 		$stmt->execute([$email]); 
 		$req_email = $stmt->fetch();
 		if ($req_email) {
@@ -84,7 +84,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
         $password = crypt($password, '$6$rounds=5000$phpprojet$'); //cryptage du password
         $token = bin2hex(random_bytes(12));
 
-        $req = $pdo->prepare("INSERT INTO p__user (username, email,password) VALUES (:username, :email,:password)");
+        $req = Model::getPDO()->prepare("INSERT INTO p__user (username, email, password) VALUES (:username, :email,:password)");
         $req->execute(array(
           'username' => $username, 
           'password' => $password, 
