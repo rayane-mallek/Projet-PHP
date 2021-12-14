@@ -13,7 +13,9 @@
         <p class="p__price"> <?= htmlentities($p->getPrice()) ?>&#8364;</p>
     </div>
         <div class="purchs_btns">
-                <a class="buying_btn" href="#">Acheter maintenant</a>
-                <a class="incart_btn" href="./index.php?controller=cart&action=addtocart&name=<?= rawurlencode($p->getName()) ?>">Ajouter au panier</a>
+                <a class="buying_btn" href="#">Buy now</a>
+                <a class="incart_btn" href="./index.php?controller=cart&action=addtocart&name=<?= rawurlencode($p->getName()) ?>">Add to the cart</a>
+                <br />
+                <br />
         </div>
 </div>

@@ -1,6 +1,8 @@
 <div class="all_products">
 <h2>MY CART</h2>
+<?php $totalPrice = 0; ?>
 <?php foreach ($tab_p as $p): ?>
+        <?php $totalPrice = $totalPrice + $p->getPrice(); ?>
         <div class="product_window">
             <div class="box_products">
                 <a class="card-img-tiles" href="./index.php?action=read&name=<?= rawurlencode($p->getName()) ?>">
@@ -18,5 +20,6 @@
             <a href="./index.php?controller=cart&action=removefromcart&name=<?= rawurlencode($p->getName()) ?>">Remove</a>
         </div>
 <?php endforeach; ?>
+<?= "<p>Total price of the cart: " . $totalPrice . "€</p>"?>
 </div>
 

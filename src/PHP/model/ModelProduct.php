@@ -89,14 +89,15 @@ class ModelProduct {
     }
 
     public function save() {
-        $insert_product = "INSERT INTO p__product(name, price, description) VALUES (:name, :price, :description)";
+        $insert_product = "INSERT INTO p__product(name, price, description, image) VALUES (:name, :price, :description, :image)";
 
         $req_prep = Model::getPDO()->prepare($insert_product);
 
         $req_prep->execute([
             "name" => $this->name,
             "price" => $this->price,
-            "description" => $this->description
+            "description" => $this->description,
+            "image" => $this->image
         ]);
     }
 
