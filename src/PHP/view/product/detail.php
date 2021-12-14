@@ -13,6 +13,10 @@
         <p class="p__price"> <?= $p->getPrice() ?>&#8364;</p>
     </div>
         <div class="purchs_btns">
+        <?php if ($_SESSION['admin'] == 1): ?>
+                    <a class="upd_btn" href="./index.php?controller=product&action=update&name=<?= rawurlencode($p->getName()) ?>" style="font-family: TommyREGULAR, Arial;">Update article</a>
+                    <a class="del_btn" href="./index.php?controller=product&action=delete&name=<?= rawurlencode($p->getName()) ?>" style="font-family: TommyREGULAR, Arial;">Delete article</a>
+        <?php endif; ?>
                 <a class="buying_btn" href="#">Acheter maintenant</a>
                 <a class="incart_btn" href="./index.php?controller=cart&action=addtocart&name=<?= $p->getName() ?>">Ajouter au panier</a>
         </div>

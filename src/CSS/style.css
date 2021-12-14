@@ -278,19 +278,37 @@ p {
     display: flex;
     flex-direction: column;
     margin-left: 70%;
-    margin-top: 35%;
+    margin-top: 30%;
     background-color: black;
     width: 15rem;
     align-items: center;
-    justify-content: center;
     font-size: 1.5rem;
+}
+
+.del_btn {
+    color: black;
+    margin-top: 1rem;
+    background-color: #ff5f5f;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: TommyTHIN, Arial;
+}
+
+.upd_btn {
+    color: black;
+    background-color: #ff5f5f;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: TommyTHIN, Arial;
 }
 
 .buying_btn {
     color: black;
+    margin-top: 1rem;
     background-color: #FFDADA;
     list-style-type: none;
     text-decoration: none;
+    font-family: TommyTHIN, Arial;
 }
 
 .incart_btn {
@@ -299,6 +317,7 @@ p {
     margin-top: 1rem;
     list-style-type: none;
     text-decoration: none;
+    font-family: TommyTHIN, Arial;
 }
 
 .product_window {
