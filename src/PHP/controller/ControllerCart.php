@@ -24,12 +24,12 @@ class ControllerCart {
             unset($_SESSION['cart'][$key]);
         }
 
-        $tab_p = ModelProduct::getAllProducts();
-
+        header("Location: ./index.php?controller=cart&action=readAll");
+        /*
         $controller = 'product';
         $pagetitle = 'List of products';
         $view = 'list';
-        require_once File::build_path(array("view","view.php"));
+        require_once File::build_path(array("view","view.php"));*/
     }
 
     public static function readAll(){

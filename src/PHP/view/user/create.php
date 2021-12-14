@@ -141,12 +141,12 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                 <?php
                 if (isset($er_username)){
                 ?>
-                  <div><?= $er_username ?></div>
+                  <div><?= htmlentities($er_username) ?></div>
                 <?php 
                 }
               ?>
                 <div class="mb-3"><label class="form-label" for="username" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Username</strong><br></label>
-                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="40" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
+                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="40" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo htmlentities($username); }?>" id="username">
 
                   <?php
                     if (isset($er_email)){
@@ -156,7 +156,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                     }
                   ?>
                   <label class="form-label" for="email" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Email</strong><br></label>
-                  <input class="form-control" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
+                  <input class="form-control" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo htmlentities($email); }?>" id="email"></div>
                               <?php
                               if (isset($er_password)){
                               ?>

@@ -128,7 +128,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                 }
               ?>
                 <div class="mb-3"><label class="form-label" for="username" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Username</strong><br></label>
-                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="40" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo $username; }?>" id="username">
+                  <input class="form-control item" type="text" id="username" minlength="3" maxlength="40" type="text" placeholder="Username" name="username" value="<?php if(isset($username)){ echo htmlentities($username); }?>" id="username">
 
                   <?php
                     if (isset($er_email)){
@@ -138,7 +138,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                     }
                   ?>
                   <label class="form-label" for="email" style="color: white; font-family: TommyTHIN, Arial; margin-bottom: 0; margin-top: 1rem;"><strong>Email</strong><br></label>
-                  <input class="form-control" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" id="email"></div>
+                  <input class="form-control" type="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo htmlentities($email); }?>" id="email"></div>
                               <?php
                               if (isset($er_password)){
                               ?>
@@ -155,7 +155,7 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
                   <input class="form-control" type="password" placeholder="Confirm Password" name="confpassword" id="confpassword" required></div>
 
                 <div class="mb-3"></div><button class="btn btn-primary text-center" type="submit" name="inscription">S'inscrire</button>
-                <div></div><h1 style="font-family: TommyTHIN, Arial; color: white;">You already have an account? <a href="index.php?action=login">Login</a></h1>
+                <div></div><h1 style="font-family: TommyTHIN, Arial; color: white;">You already have an account? <a href="index.php?controller=user&action=login">Login</a></h1>
             </form>
         </div>
     </section>

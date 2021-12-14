@@ -7,13 +7,13 @@
         <h3><?php echo htmlentities($p->getName()) ?></h3>
 
         <h1 class="h__article">Description</h1>
-        <p> <?= $p->getDescription() ?></p>
+        <p> <?= htmlentities($p->getDescription()) ?></p>
 
         <h1 class="h__article__price">Price</h1>
-        <p class="p__price"> <?= $p->getPrice() ?>&#8364;</p>
+        <p class="p__price"> <?= htmlentities($p->getPrice()) ?>&#8364;</p>
     </div>
         <div class="purchs_btns">
                 <a class="buying_btn" href="#">Acheter maintenant</a>
-                <a class="incart_btn" href="./index.php?controller=cart&action=addtocart&name=<?= $p->getName() ?>">Ajouter au panier</a>
+                <a class="incart_btn" href="./index.php?controller=cart&action=addtocart&name=<?= rawurlencode($p->getName()) ?>">Ajouter au panier</a>
         </div>
 </div>

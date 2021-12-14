@@ -16,7 +16,7 @@
                 ?>
                     <li><a href="./index.php">Homepage</a></li>
                     <li><a href="./index.php?action=readAll">Our products</a></li>
-                    <li><a href="./index.php?controller=user&action=profil">My account</a></li>
+                    <!--<li><a href="./index.php?controller=user&action=profil">My account</a></li>-->
                     <li><a href="./index.php?controller=cart&action=readAll">My cart</a></li>
                     <li><a href="./index.php?controller=user&action=logout">Logout</a></li>
                 <?php

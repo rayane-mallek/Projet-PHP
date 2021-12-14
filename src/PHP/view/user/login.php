@@ -101,7 +101,7 @@
                 }
               ?>
                 <div class="mb-3"><label class="form-label" for="email" style="color: white; font-family: TommyTHIN, Arial;"><strong> Email</strong><br></label>
-                  <input class="form-control" type="email" id="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" required></div>
+                  <input class="form-control" type="email" id="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo htmlentities($email); }?>" required></div>
                   <?php
                   if (isset($er_password)){ //si $er_password n'est pas vide, alors on l'affiche
                   ?>

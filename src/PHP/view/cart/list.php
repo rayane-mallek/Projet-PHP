@@ -7,10 +7,10 @@
                     <div><img class="main-img" src="<?php echo $p->getImage() ?>" alt="<?= htmlentities($p->getName()) ?>"></div>
                 </a>
                 <div class="desc_box">
-                    <h2 class="h5 mb-1"><?= $p->getName() ?></h2>
-                    <p><?= $p->getDescription() ?></p>
+                    <h2 class="h5 mb-1"><?= htmlentities($p->getName()) ?></h2>
+                    <p><?= htmlentities($p->getDescription()) ?></p>
                     <span class="price">Price: 
-                        <span class="font-weight-semibold"><?= $p->getPrice() . "€"?></span>
+                        <span class="font-weight-semibold"><?= htmlentities($p->getPrice()) . "€"?></span>
                     </span>
                     <a class="article_show" href="./index.php?action=read&name=<?= rawurlencode($p->getName()) ?>"> Show article</a>
                 </div>
