@@ -1,0 +1,47 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* text-align: left; */
+    
+}
+
+body > h3, body > form, body > .session {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form { 
+    display : flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    border: 1px solid;
+}
+
+.nom_pre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nom_pre > input {
+    width: 50%;
+}
+
+
+label {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+} 
+
+input {
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+a {
+    justify-self: center;
+    justify-content: center;
+}
