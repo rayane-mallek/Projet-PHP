@@ -371,6 +371,13 @@ p {
     align-items: center;
 }
 
+.username_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .register_form {
     display: flex;
     flex-direction: column;
@@ -407,6 +414,15 @@ p {
 .form-label {
     display: flex;
     flex-direction: column;
+}
+
+
+.profil_form {
+    color: white;
+}
+
+.div_form_prof h3:first-child {
+    color: green;
 }
 
 @font-face {

@@ -118,4 +118,48 @@ class ControllerUser {
     require File::build_path(array("view","view.php"));
   }
 
+  public static function profil(){
+    $pagetitle = 'Profil';
+    $controller='user';
+    $view='profil';
+    require File::build_path(array("view","view.php"));
+  }
+
+  public static function resetusername(){
+
+    $validU = true;
+    if(isset($_POST['username_form'])){ //si le formulaire est vide ne rien faire
+      extract($_POST);
+
+      // Verification si le username est déjà utilisé
+      $verifUn = "SELECT * FROM p__user WHERE username=:username";
+
+      $prepUn = Model::getPDO()->prepare($verifUn);
+      $prepUn->execute(["username" => $newUn]);
+
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+
+      $tab_us = $req_prep->fetchAll();
+      // Attention, si il n'y a pas de résultats, on renvoie false
+      if (empty($tab_us)){
+        $validU = true;
+      }
+
+    }
+
+
+    if($valid){
+      ModelUser::changeUsername($username);
+      $pagetitle = 'Reset Username';
+      $view='resetusername';
+
+    } else {
+      $pagetitle = 'Error Reset Username';
+      $view='error';
+    }
+
+    $controller='user';
+    require File::build_path(array("view","view.php"));
+  }
+
 }

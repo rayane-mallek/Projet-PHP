@@ -104,6 +104,16 @@ class ModelUser {
         return $tab_us[0];
     }
 
+    public static function changeUsername($newUn){
+        // on remplace le username
+        $sql = "UPDATE p__user SET username=:username WHERE idUser=:idUser";
+
+        $req_prep = Model::getPDO()->prepare($sql);
+        $prepUn->execute([
+            "username" => $newUn,
+            "idUser" => $this->idUser
+        ]);
+    }
 
 }
 
