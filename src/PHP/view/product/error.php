@@ -1,1 +1,0 @@
-<p>No product with this registration</p>
