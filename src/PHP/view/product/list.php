@@ -12,6 +12,10 @@
                         <span class="font-weight-semibold"><?= $p->getPrice() . "€"?></span>
                     </span>
                     <a class="article_show" href="./index.php?action=read&name=<?= rawurlencode($p->getName()) ?>"> Show article</a>
+                    <?php if ($_SESSION['admin'] == 1): ?>
+                        <a class="article_upd" href="./index.php?controller=product&action=update&name=<?= rawurlencode($p->getName()) ?>" style="font-family: TommyREGULAR, Arial;">Update article</a>
+                        <a class="article_del" href="./index.php?controller=product&action=delete&name=<?= rawurlencode($p->getName()) ?>" style="font-family: TommyREGULAR, Arial;">Delete article</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
