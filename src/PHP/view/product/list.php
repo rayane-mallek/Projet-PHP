@@ -18,6 +18,8 @@
 <?php endforeach; ?>
 </div>
 
+<?php if ($_SESSION['admin'] == 1): ?>
 <div class="add_product">
     <a href="./index.php?controller=product&action=create">Add a product</a>
 </div>
+<?php endif; ?>

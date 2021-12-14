@@ -30,10 +30,15 @@ class ControllerProduct {
     }
 
     public static function create() {
-        $controller = 'product';
-        $pagetitle = 'Create a product';
-        $view = 'create';
-        require_once File::build_path(array("view","view.php"));
+        if ($_SESSION['admin'] == 1) {
+            $controller = 'product';
+            $pagetitle = 'Create a product';
+            $view = 'create';
+            require_once File::build_path(array("view","view.php"));
+        } else {
+            ControllerProduct::error();
+        }
+        
     }
 
     public static function created() {
@@ -55,23 +60,32 @@ class ControllerProduct {
     }
 
     public static function delete() {
-        ModelProduct::deleteByName($_GET['name']);
-        $tab_p = ModelProduct::getAllProducts();
-        $nameProduct = $_GET['name'];
+        if ($_SESSION['admin'] == 1) {
+            ModelProduct::deleteByName($_GET['name']);
+            $tab_p = ModelProduct::getAllProducts();
+            $nameProduct = $_GET['name'];
 
-
-        $controller = 'product';
-        $view = 'deleted';
-        $pagetitle = 'Product deleted';
-        require File::build_path(array("view", "view.php"));    
+            $controller = 'product';
+            $view = 'deleted';
+            $pagetitle = 'Product deleted';
+            require File::build_path(array("view", "view.php"));  
+        } else {
+            ControllerProduct::error();
+        }
+          
     }
 
     public static function update() {
-        $p = ModelProduct::getProductByName($_GET['name']);
-        $controller = 'product';
-        $view = 'update';
-        $pagetitle = 'Edit a product';
-    	require File::build_path(array("view", "view.php"));
+        if ($_SESSION['admin'] == 1) {
+            $p = ModelProduct::getProductByName($_GET['name']);
+            $controller = 'product';
+            $view = 'update';
+            $pagetitle = 'Edit a product';
+            require File::build_path(array("view", "view.php"));
+        } else {
+            ControllerProduct::error();
+        }
+ 
     }
 
     public static function updated() {

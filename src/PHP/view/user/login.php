@@ -54,6 +54,7 @@
       $_SESSION['id'] = $resultat[0]['idUser']; 
       $_SESSION['username'] = htmlentities($resultat[0]['username']); //htmlentities pour éviter les injections html/php
       $_SESSION['email'] = htmlentities($resultat[0]['email']);
+      $_SESSION['admin'] = htmlentities($resultat[0]['isAdmin']);
 
 
       header('Location: ./index.php'); //on redirige l'utilisateur vers la page d'accueil

@@ -5,6 +5,10 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
 
+if (!isset($_SESSION['admin'])) {
+    $_SESSION['admin'] = 0;
+}
+
 require_once File::build_path(array("controller", "ControllerProduct.php"));
 require_once File::build_path(array("controller", "ControllerUser.php"));
 require_once File::build_path(array("controller", "ControllerCart.php"));
