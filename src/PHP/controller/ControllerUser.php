@@ -118,4 +118,12 @@ class ControllerUser {
     require File::build_path(array("view","view.php"));
   }
 
+  public static function validate() {
+    $tab_u = ModelUser::getUSerByName($_GET['username']);
+    if ($tab_u != false && strcmp(ModelUser::getNonce($_GET['username']), $_GET['nonce'])) {
+      ModelUser::updateNonce($_GET['username']);
+    }
+
+  }
+
 }

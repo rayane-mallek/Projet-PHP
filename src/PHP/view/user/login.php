@@ -49,6 +49,10 @@
     $req->execute(array('email' => $email));
     $resultat = $req->fetchAll();
 
+    if ($resultat[0]['nonce'] != null) {
+      $ok = false;
+    }
+
     if ($ok){
      //si tout est valide, alors on charge une session avec les attributs de la requete
       $_SESSION['id'] = $resultat[0]['idUser']; 
@@ -97,7 +101,7 @@
                 }
               ?>
                 <div class="mb-3"><label class="form-label" for="email" style="color: white; font-family: TommyTHIN, Arial;"><strong> Email</strong><br></label>
-                  <input class="form-control" type="email" id="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo $email; }?>" required></div>
+                  <input class="form-control" type="email" id="email" placeholder=" email" name="email" value="<?php if(isset($email)){ echo htmlentities($email); }?>" required></div>
                   <?php
                   if (isset($er_password)){ //si $er_password n'est pas vide, alors on l'affiche
                   ?>
