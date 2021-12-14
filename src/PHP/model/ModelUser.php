@@ -83,13 +83,13 @@ class ModelUser {
 
     }
 
-    public static function getUSerById($idU) {
-        $sql = "SELECT * from p__user WHERE idUser=:idUser";
+    public static function getUSerByName($username) {
+        $sql = "SELECT * from p__user WHERE username=:username";
         // Préparation de la requête
         $req_prep = Model::getPDO()->prepare($sql);
 
         $values = array(
-            "idUser" => $idU
+            "username" => $username
         );
         // On donne les valeurs et on exécute la requête
         $req_prep->execute($values);
@@ -102,6 +102,25 @@ class ModelUser {
         if (empty($tab_us))
             return false;
         return $tab_us[0];
+    }
+
+    public static function updateNonce($username) {
+        $sql = "UPDATE p__user SET nonce = :nonce WHERE username = :username";
+        $values = array(
+            "nonce" => NULL,
+            "username" => $username
+        );
+        $req_prep = Model::getPDO()->prepare($sql);
+        $req_prep->execute($values);
+    }
+
+    public static function getNonce($username) {
+        $sql = "SELECT nonce FROM p__user WHERE username = :username";
+        $values = array(
+            "username" => $username
+        );
+        $req_prep = Model::getPDO()->prepare($sql);
+        $req_prep->execute($values); 
     }
 
 

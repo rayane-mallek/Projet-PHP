@@ -49,6 +49,10 @@
     $req->execute(array('email' => $email));
     $resultat = $req->fetchAll();
 
+    if ($resultat[0]['nonce'] != null) {
+      $ok = false;
+    }
+
     if ($ok){
      //si tout est valide, alors on charge une session avec les attributs de la requete
       $_SESSION['id'] = $resultat[0]['idUser']; 

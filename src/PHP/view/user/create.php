@@ -2,6 +2,14 @@
 
 require_once './PHP/config/Conf.php';
 
+function generateRandomHex() {
+  // Generate a 32 digits hexadecimal number
+  $numbytes = 16; // Because 32 digits hexadecimal = 16 bytes
+  $bytes = openssl_random_pseudo_bytes($numbytes); 
+  $hex   = bin2hex($bytes);
+  return $hex;
+}
+
 
 if ((isset($_SESSION['id']))){ //si une session existe déja (= utilisateur connecté) on redirige vers la page d'accueil
     header('Location: ../index.php');
@@ -80,16 +88,26 @@ if(!empty($_POST)){ //si le formulaire est vide ne rien faire
  
       //on execute la requete sql si toutes les conditions sont valides
       if($ok){
-
+        $nonce = generateRandomHex();
         $options = ['cost' => 12];
         $password = password_hash($password, PASSWORD_BCRYPT, $options);; //cryptage du password
 
-        $req = Model::getPDO()->prepare("INSERT INTO p__user (username, email, password) VALUES (:username, :email,:password)");
+        $req = Model::getPDO()->prepare("INSERT INTO p__user (username, email, password, nonce) VALUES (:username, :email,:password,:nonce)");
         $req->execute(array(
           'username' => $username, 
           'password' => $password, 
-          'email' => $email)
-        );
+          'email' => $email,
+          'nonce' => $nonce
+        ));
+
+        $mail = "https://webinfo.iutmontp.univ-montp2.fr/~mallekr/Projet-PHP/src/index.php?controller=user&action=validate&username=$username&nonce=$nonce";
+
+        $header = "From: Hack-King <mallekrayane0@gmail.com>\n";
+        $header .= "MIME-version: 1.0\n";
+        $header .= "Content-type: text/html; charset=utf-8\n";
+        $header .= "Content-Transfer-ncoding: 8bit";
+
+        mail($email, 'Confirmation de compte', $mail, $header);
       
         header('Location: ./index.php?controller=user&action=login'); //redirection vers la page
         exit;
